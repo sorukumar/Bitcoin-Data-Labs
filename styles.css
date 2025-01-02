@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin Data Labs</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    
+    <div class="top-bar">
+        <div class="container top-container">
+            <div class="logo">
+                <a href="#"> Bitcoin Data Labs</a>
+            </div>
+            <div class="social-links-top">
+                <a href="https://github.com/sorukumar/Bitcoin-Data-Labs" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                 <a href="https://x.com/Soru_kumar" target="_blank" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/bitcoin-data-labs" target="_blank" class="social-icon">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+</div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <p class="description">
+                    We build open-source data tools and insights for the Bitcoin ecosystems. We are community of data scientist, analyst and enthusiasts. Join us to learn, build and educate.
+                </p>
+            </div>
+        </header>
+
+        <section class="section" id="dashboards">
+            <h2 class="section-title"><i class="fas fa-chart-line"></i> Dashboards</h2>
+            <div class="list-container">
+                <div class="list-item">
+                    <i class="fas fa-bolt item-icon"></i>
+                    <div class="item-content">
+                         <h3>PlebDashboard</h3>
+                         <p>Lightning Network data, insights, and visualization</p>
+                    </div>
+                    <a href="https://sorukumar.github.io/plebdashboard/" target="_blank" class="item-link">
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="list-item">
+                    <i class="fas fa-link item-icon"></i>
+                    <div class="item-content">
+                        <h3>Bitcoin is Beautiful</h3>
+                        <p>Making Bitcoin insights visually appealing</p>
+                    </div>
+                    <a href="http://bitcoinisbeautiful.xyz/" target="_blank" class="item-link">
+                         <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+             
+            </div>
+        </section>
+
+        <section class="section" id="tools">
+            <h2 class="section-title"><i class="fas fa-tools"></i> Tools</h2>
+            <div class="list-container">
+                <div class="list-item">
+                    <i class="fas fa-server item-icon"></i>
+                    <div class="item-content">
+                        <h3>Bitcoin and Lightning Tools</h3>
+                        <p>LN Simulator, Bitcoin Mining Explainer, Lightning Channel ID decoder, and more</p>
+                    </div>
+                    <a href="https://sorukumar.github.io/Tools/" target="_blank" class="item-link">
+                         <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="mini-books">
+            <h2 class="section-title"><i class="fas fa-book"></i> Mini Books</h2>
+            <div class="list-container">
+                <div class="list-item">
+                    <i class="fas fa-book item-icon"></i>
+                    <div class="item-content">
+                        <h3>The Bitcoin Express</h3>
+                         <p>Quick guide to Bitcoin</p>
+                    </div>
+                    <a href="https://sorukumar.github.io/TheBitcoinExpress/index.html" target="_blank" class="item-link">
+                    <i class="fas fa-arrow-right"></i>
+                    </a>
+            </div>
+                 <div class="list-item">
+                     <i class="fas fa-lock item-icon"></i>
+                     <div class="item-content">
+                        <h3>The Cryptography Express</h3>
+                         <p>Cryptography basics, fast</p>
+                    </div>
+                    <a href="https://sorukumar.github.io/TheCryptographyExpress/index.html" target="_blank" class="item-link">
+                    <i class="fas fa-arrow-right"></i>
+                     </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="social-links">
+            <h2 class="section-title"><i class="fas fa-users"></i> Connect With Us</h2>
+            <div class="social-icons">
+                <a href="https://github.com/sorukumar/Bitcoin-Data-Labs" target="_blank" class="social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://x.com/Soru_kumar" target="_blank" class="social-icon">
+                   <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/bitcoin-data-labs" target="_blank" class="social-icon">
+                     <i class="fab fa-linkedin"></i>
+                 </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Bitcoin Data Labs. All rights reserved.</p>
+    </footer>
+</body>
+</html>
