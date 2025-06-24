@@ -1,0 +1,385 @@
+:root {
+    /* Primary Colors */
+    --primary: #E8916B;     /* Warm Terracotta */
+    --secondary: #2A3342;   /* Deep Blue-Grey */
+    
+    /* Background Colors */
+    --bg-primary: #FDFBF9;  /* Warm White */
+    --bg-secondary: #F5F1EE; /* Light Warm Grey */
+    
+    /* Text Colors */
+    --text-primary: #2A3342; /* Deep Blue-Grey */
+    --text-secondary: #5F6C7E; /* Medium Grey */
+    
+    /* Accent Colors */
+    --accent-warm: #D4A298;  /* Dusty Rose */
+    --accent-cool: #8293AB;  /* Muted Blue */
+}
+
+/* Top bar styles */
+.top-bar {
+    background: linear-gradient(to bottom, rgba(58, 68, 86, 0.97), rgba(42, 51, 66, 0.95));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.top-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo styles */
+.logo-img {
+    height: 75px;
+    width: auto;
+    transition: height 0.3s ease;
+}
+
+/* Header Compression Styles */
+.header-compressed {
+    background: rgba(42, 51, 66, 0.98);
+    padding: 0.3rem 0;
+}
+
+.header-compressed .logo-img {
+    height: 35px;
+}
+
+.header-compressed .parent-logo-img {
+    height: 25px;
+}
+
+.header-compressed .top-container {
+    padding: 0.5rem 2rem;
+}
+
+/* Social links styles */
+.social-links-top {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.social-links-top .social-icon {
+    color: var(--bg-primary);
+    font-size: 1.2rem;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.social-links-top .social-icon:hover {
+    opacity: 1;
+    color: var(--primary);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 90px; /* Increased from 70px to create more breathing room */
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
+
+.container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    padding: 4rem 0;
+    margin: 2rem 0 3rem 0;
+    border-radius: 12px;
+    background: var(--bg-secondary);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    margin: 0;
+    padding: 0 1rem;
+}
+
+/* Remove old header styles as they're no longer needed */
+header {
+    display: none;
+}
+
+.header-content {
+    display: none;
+}
+
+/* Section styles */
+.section {
+    margin: 5rem 0;
+    position: relative;
+}
+
+/* ...rest of existing styles... */
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    color: var(--secondary);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    opacity: 0.9;
+}
+
+.section-title i {
+    color: var(--primary);
+    margin-right: 0.5rem;
+}
+
+/* List container for dashboards and mini-books */
+.list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Open Data Hub specific style */
+#data-hub .list-container {
+    grid-template-columns: 1fr;
+}
+
+.list-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--bg-secondary);
+    box-shadow: 0 2px 8px rgba(42, 51, 66, 0.05);
+    transition: all 0.2s ease;
+}
+
+.list-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+    box-shadow: 0 4px 12px rgba(42, 51, 66, 0.08);
+}
+
+.list-item h3 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.list-item h3 a {
+    color: var(--secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.list-item h3 a:hover {
+    color: var(--primary);
+}
+
+.list-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Tools list */
+.tools-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.tools-list li {
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.tools-list li:before {
+    content: "•";
+    color: var(--primary);
+    position: absolute;
+    left: 0;
+}
+
+.tools-list a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.tools-list a:hover {
+    color: var(--primary);
+}
+
+/* Social links */
+.social-links {
+    text-align: center;
+    margin: 4rem 0;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.social-icon {
+    font-size: 1.5rem;
+    color: var(--accent-cool);
+    transition: color 0.2s ease;
+}
+
+.social-icon:hover {
+    color: var(--primary);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    margin-top: 4rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* App Header Specific Styles */
+.app-header {
+    padding: 0.5rem 0;
+}
+
+.logos-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.app-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--bg-primary);
+    letter-spacing: 0.01em;
+}
+
+.divider {
+    width: 1px;
+    height: 25px;
+    background: rgba(255,255,255,0.2);
+    margin: 0 0.5rem;
+}
+
+.parent-logo-img {
+    height: 30px;
+    width: auto;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+}
+
+.parent-logo-img:hover {
+    opacity: 1;
+}
+
+/* Badge styles */
+.badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    margin-left: 0.5rem;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.badge-platform {
+    background-color: var(--accent-cool);
+    color: white;
+}
+
+.badge-independent {
+    background-color: var(--text-secondary);
+    opacity: 0.7;
+    color: white;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .list-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .top-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .social-links-top {
+        margin-top: 0.5rem;
+    }
+    
+    .header-content {
+        text-align: center;
+    }
+    
+    .tools-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-compact .logo-img {
+        height: 30px;
+    }
+    
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 1240px) {
+    .top-container {
+        max-width: 100%;
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .header-compressed .top-container {
+        padding: 0.5rem 1.5rem;
+    }
+}

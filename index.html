@@ -3,66 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; connect-src 'self' https:;">
     <title>Bitcoin Data Labs</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="favicon.png" type="image/png">
 </head>
 <body>
-    <div class="top-bar">
-        <div class="container top-container">
-            <div class="logo">
-                <a href="#">
-                    <img src="logo.png" alt="Bitcoin Data Labs Logo" class="logo-img">
-                </a>
-            </div>
-            <div class="social-links-top">
-                <a href="https://github.com/sorukumar/Bitcoin-Data-Labs" target="_blank" class="social-icon">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://x.com/Soru_kumar" target="_blank" class="social-icon">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.linkedin.com/company/bitcoin-data-labs" target="_blank" class="social-icon">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </div>
-        </div>
-    </div>
+    <div id="header"></div>
 
     <div class="container">
-        <header>
-            <div class="header-content">
-                <p class="description">
+        <section class="hero-section">
+            <div class="hero-content">
+                <p class="hero-description">
                     We build open-source data platform, tools and insights for the Bitcoin ecosystem. We are a community of data scientists, analysts, and engineers. Join us to learn, build and educate.
                 </p>
             </div>
-        </header>
+        </section>
 
+        <!-- Open Data Hub Section -->
+        <section class="section" id="data-hub">
+            <h2 class="section-title"><i class="fas fa-database"></i> Open Data Hub</h2>
+            <div class="list-container">
+                <div class="list-item">
+                    <h3>
+                        <a href="https://datalabs.orangemetrics.xyz/" target="_blank">Data Platform</a>
+                    </h3>
+                    <p>A shared data platform for the Bitcoin ecosystem and beyond. We curate, clean, and transform data from Bitcoin, Lightning, and open-source projects, enabling you to build insights and applications with ease.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboards Section -->
         <section class="section" id="dashboards">
             <h2 class="section-title"><i class="fas fa-chart-line"></i> Dashboards</h2>
             <div class="list-container">
                 <div class="list-item">
-                    <h3><a href="https://sorukumar.github.io/plebdashboard/" target="_blank">PlebDashboard</a></h3>
+                    <h3>
+                        <a href="https://sorukumar.github.io/plebdashboard/" target="_blank">PlebDashboard</a>
+                        <span class="badge badge-platform">Powered by Data Platform</span>
+                    </h3>
                     <p>Lightning Network data, insights, and visualization</p>
                 </div>
-                  <div class="list-item">
-                    <h3><a href="https://superset-466322238081.us-central1.run.app//" target="_blank">Bitcoin's Data Platform</a></h3>
-                    <p>We clean, transform and enable bitcoin data so that you can focus on insights</p>
-                </div>
 
                 <div class="list-item">
-                    <h3><a href="http://bitcoinisbeautiful.xyz/" target="_blank">Bitcoin is Beautiful</a></h3>
+                    <h3>
+                        <a href="http://bitcoinisbeautiful.xyz/" target="_blank">Bitcoin is Beautiful</a>
+                        <span class="badge badge-independent">Independent</span>
+                    </h3>
                     <p>Making Bitcoin insights visually appealing</p>
                 </div>
+
                 <div class="list-item">
-                    <h3><a href="https://sorukumar.github.io/Tools/BitcoinBasicStats/index.html" target="_blank">Bitcoin Network Stats</a></h3>
+                    <h3>
+                        <a href="https://sorukumar.github.io/Tools/BitcoinBasicStats/index.html" target="_blank">Bitcoin Network Stats</a>
+                        <span class="badge badge-independent">Independent</span>
+                    </h3>
                     <p>Network stats, last 24 hours</p>
                 </div>
-
             </div>
         </section>
 
+        <!-- Tools Section -->
         <section class="section" id="tools">
             <h2 class="section-title"><i class="fas fa-tools"></i> Tools</h2>
             <ul class="tools-list">
@@ -75,6 +77,7 @@
             </ul>
         </section>
 
+        <!-- Mini Books Section -->
         <section class="section" id="mini-books">
             <h2 class="section-title"><i class="fas fa-book"></i> Mini Books</h2>
             <div class="list-container">
@@ -94,6 +97,7 @@
             </div>
         </section>
 
+        <!-- Connect With Us Section -->
         <section class="social-links">
             <h2 class="section-title"><i class="fas fa-users"></i> Connect With Us</h2>
             <div class="social-icons">
@@ -110,8 +114,13 @@
         </section>
     </div>
 
-    <footer>
-        <p>© 2024 Bitcoin Data Labs. All rights reserved.</p>
-    </footer>
+    <div id="footer"></div>
+
+    <script src="components/include.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            BitcoinLabsComponents.init();
+        });
+    </script>
 </body>
 </html>
