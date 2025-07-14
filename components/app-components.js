@@ -57,8 +57,16 @@ class BitcoinLabsAppComponents {
             const appName = document.getElementById('currentAppName');
             const appLink = document.getElementById('appHomeLink');
             
-            if (appName && config.appName) {
-                appName.textContent = config.appName;
+            if (appName) {
+                if (config.appName) {
+                    appName.textContent = config.appName;
+                } else {
+                    // Hide the entire app logo section when appName is null
+                    const appLogo = appName.closest('.app-logo');
+                    const divider = document.querySelector('.divider');
+                    if (appLogo) appLogo.style.display = 'none';
+                    if (divider) divider.style.display = 'none';
+                }
             }
             if (appLink && config.appHomeUrl) {
                 appLink.href = config.appHomeUrl;
