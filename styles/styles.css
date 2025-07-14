@@ -18,16 +18,13 @@
 
 /* Top bar styles */
 .top-bar {
-    background: linear-gradient(to bottom, rgba(58, 68, 86, 0.97), rgba(42, 51, 66, 0.95));
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary)); /* Subtle warm gradient */
     padding: 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .top-container {
@@ -48,7 +45,7 @@
 
 /* Header Compression Styles */
 .header-compressed {
-    background: rgba(42, 51, 66, 0.98);
+    background: var(--bg-secondary); /* Keep same color when compressed */
     padding: 0.3rem 0;
 }
 
@@ -72,7 +69,7 @@
 }
 
 .social-links-top .social-icon {
-    color: var(--bg-primary);
+    color: var(--text-primary); /* Changed from --bg-primary to --text-primary for visibility */
     font-size: 1.2rem;
     opacity: 0.8;
     transition: all 0.3s ease;
@@ -80,7 +77,7 @@
 
 .social-links-top .social-icon:hover {
     opacity: 1;
-    color: var(--primary);
+    color: var(--primary); /* Orange on hover */
 }
 
 body {

@@ -100,27 +100,30 @@ class BitcoinLabsAppComponents {
     
     static getFallbackHeader(config) {
         const appSection = config.isApp && config.appName ? `
-            <a href="${config.appHomeUrl || '#'}" style="color: #333; text-decoration: none; font-weight: bold;">
+            <a href="${config.appHomeUrl || '#'}" style="color: #2A3342; text-decoration: none; font-weight: bold;">
                 ${config.appName}
             </a>
             <span style="margin: 0 10px; color: #ccc;">|</span>
         ` : '';
         
         return `
-            <div class="top-bar" style="background: #fff; border-bottom: 1px solid #eee; padding: 10px 0;">
+            <div class="top-bar" style="background: linear-gradient(to bottom, #FDFBF9, #F5F1EE); padding: 10px 0;">
                 <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center;">
                     <div style="display: flex; align-items: center;">
                         ${appSection}
-                        <a href="${this.baseUrl}/" style="color: #f7931a; text-decoration: none; font-weight: bold;">
+                        <a href="${this.baseUrl}/" style="color: #E8916B; text-decoration: none; font-weight: bold;">
                             Bitcoin Data Labs
                         </a>
                     </div>
                     <div style="display: flex; gap: 15px;">
-                        <a href="https://github.com/sorukumar/Bitcoin-Data-Labs" target="_blank" style="color: #333; text-decoration: none;">
+                        <a href="https://github.com/sorukumar/Bitcoin-Data-Labs" target="_blank" style="color: #2A3342; text-decoration: none; opacity: 0.8; transition: all 0.3s ease;" onmouseover="this.style.opacity='1'; this.style.color='#E8916B';" onmouseout="this.style.opacity='0.8'; this.style.color='#2A3342';">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://x.com/Soru_kumar" target="_blank" style="color: #333; text-decoration: none;">
+                        <a href="https://x.com/Soru_kumar" target="_blank" style="color: #2A3342; text-decoration: none; opacity: 0.8; transition: all 0.3s ease;" onmouseover="this.style.opacity='1'; this.style.color='#E8916B';" onmouseout="this.style.opacity='0.8'; this.style.color='#2A3342';">
                             <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/saurabh-kumar-930b6623/" target="_blank" style="color: #2A3342; text-decoration: none; opacity: 0.8; transition: all 0.3s ease;" onmouseover="this.style.opacity='1'; this.style.color='#E8916B';" onmouseout="this.style.opacity='0.8'; this.style.color='#2A3342';">
+                            <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
                 </div>
@@ -129,11 +132,24 @@ class BitcoinLabsAppComponents {
     
     static getFallbackFooter() {
         return `
-            <footer style="background: #f8f9fa; border-top: 1px solid #eee; padding: 20px 0; text-align: center; margin-top: 40px;">
-                <p style="margin: 0; color: #666; font-size: 14px;">
-                    © ${new Date().getFullYear()} <a href="${this.baseUrl}/" style="color: #f7931a; text-decoration: none;">Bitcoin Data Labs</a>. All rights reserved.
+            <footer style="background: #F5F1EE; padding: 2rem; text-align: center; margin-top: 4rem; font-size: 0.9rem; color: #5F6C7E;">
+                <p style="margin: 0; color: #5F6C7E;">
+                    © ${new Date().getFullYear()} <a href="${this.baseUrl}/" style="color: #E8916B; text-decoration: none;">Bitcoin Data Labs</a>. All rights reserved.
                 </p>
             </footer>`;
+    }
+    
+    static loadFavicon() {
+        // Remove any existing favicons
+        const existingLinks = document.querySelectorAll('link[rel*="icon"]');
+        existingLinks.forEach(link => link.remove());
+        
+        // Add Bitcoin Data Labs favicon
+        const favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        favicon.type = 'image/png';
+        favicon.href = `${this.baseUrl}/favicon.png`;
+        document.head.appendChild(favicon);
     }
     
     static init(config = {}) {
@@ -141,6 +157,9 @@ class BitcoinLabsAppComponents {
         if (config.isApp && !config.appName) {
             console.warn('Bitcoin Data Labs: appName is recommended when isApp is true');
         }
+        
+        // Load favicon
+        this.loadFavicon();
         
         // Load components
         const headerPath = config.isApp ? '/components/app-header.html' : '/components/header.html';
