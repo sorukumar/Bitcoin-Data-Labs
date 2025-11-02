@@ -14,6 +14,11 @@
     /* Accent Colors */
     --accent-warm: #D4A298;  /* Dusty Rose */
     --accent-cool: #8293AB;  /* Muted Blue */
+
+    /* Shadow Colors */
+    --shadow-secondary: 42, 51, 66; /* RGB for --secondary */
+    --shadow-primary: 232, 145, 107; /* RGB for --primary */
+    --shadow-accent-cool: 139, 190, 220; /* RGB for --accent-cool */
 }
 
 /* Top bar styles */
@@ -25,6 +30,9 @@
     top: 0;
     z-index: 1000;
     transition: all 0.3s ease;
+    box-shadow: 0 2px 16px rgba(var(--shadow-secondary, 42, 51, 66), 0.07); /* Use variable for shadow */
+    border-radius: 0 0 16px 16px; /* Slightly round bottom corners */
+    overflow: hidden;
 }
 
 .top-container {
@@ -36,11 +44,19 @@
     align-items: center;
 }
 
+.logo-img, .parent-logo-img, .app-name {
+    transition: transform 0.2s, color 0.2s, opacity 0.2s, height 0.3s;
+}
+
 /* Logo styles */
 .logo-img {
     height: 75px;
     width: auto;
-    transition: height 0.3s ease;
+}
+
+.logo-img:hover, .parent-logo-img:hover {
+    transform: scale(1.07);
+    opacity: 1;
 }
 
 /* Header Compression Styles */
@@ -72,12 +88,20 @@
     color: var(--text-primary); /* Changed from --bg-primary to --text-primary for visibility */
     font-size: 1.2rem;
     opacity: 0.8;
-    transition: all 0.3s ease;
+    box-shadow: 0 1px 6px rgba(var(--shadow-secondary, 42, 51, 66), 0.08);
+    transition: transform 0.2s, color 0.2s, opacity 0.2s, box-shadow 0.2s;
+}
+
+.social-links-top .social-icon:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
 }
 
 .social-links-top .social-icon:hover {
     opacity: 1;
     color: var(--primary); /* Orange on hover */
+    transform: scale(1.15);
+    box-shadow: 0 2px 12px rgba(var(--shadow-primary, 232, 145, 107), 0.15);
 }
 
 body {
@@ -87,6 +111,8 @@ body {
     padding-top: 90px; /* Increased from 70px to create more breathing room */
     color: var(--text-primary);
     background-color: var(--bg-primary);
+    font-size: 17px;
+    font-weight: 400;
 }
 
 .container {
@@ -103,6 +129,22 @@ body {
     margin: 2rem 0 3rem 0;
     border-radius: 12px;
     background: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.hero-section .hero-bg-accent {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 620px;
+    height: 320px;
+    background: radial-gradient(circle at 60% 40%, rgba(var(--shadow-primary, 232, 145, 107), 0.10) 0%, rgba(var(--shadow-accent-cool, 139, 190, 220), 0.08) 60%, rgba(255,255,255,0) 100%);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(2px);
+    border-radius: 50%;
 }
 
 .hero-content {
@@ -110,6 +152,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
+    z-index: 1;
 }
 
 .hero-description {
@@ -131,22 +174,22 @@ header {
 
 /* Section styles */
 .section {
-    margin: 5rem 0;
+    margin: 6rem 0;
     position: relative;
 }
 
-/* ...rest of existing styles... */
-
 .section-title {
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-bottom: 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 2.5rem;
     color: var(--secondary);
-    border-bottom: 2px solid var(--primary);
-    padding-bottom: 0.5rem;
+    border-bottom: 3px solid;
+    border-image: linear-gradient(to right, var(--primary), var(--accent-cool)) 1;
+    padding-bottom: 0.7rem;
     display: flex;
     align-items: center;
-    opacity: 0.9;
+    opacity: 0.95;
+    letter-spacing: 0.02em;
 }
 
 .section-title i {
@@ -167,18 +210,38 @@ header {
 }
 
 .list-item {
-    background: white;
-    border-radius: 12px;
-    padding: 1.5rem;
-    border: 1px solid var(--bg-secondary);
-    box-shadow: 0 2px 8px rgba(42, 51, 66, 0.05);
-    transition: all 0.2s ease;
+    background: var(--bg-primary);
+    border-radius: 16px;
+    padding: 1.75rem;
+    border: 1px solid #ececec;
+    box-shadow: 0 2px 8px rgba(42, 51, 66, 0.07);
+    transition: transform 0.18s, box-shadow 0.18s, background 0.25s;
 }
 
 .list-item:hover {
-    transform: translateY(-2px);
-    border-color: var(--primary);
-    box-shadow: 0 4px 12px rgba(42, 51, 66, 0.08);
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 6px 18px rgba(232, 145, 107, 0.12);
+    background: linear-gradient(120deg, var(--bg-primary) 70%, var(--accent-warm) 100%);
+}
+
+.list-item.selected {
+    box-shadow: 0 0 0 2px rgba(232, 145, 107, 0.15);
+    border-color: var(--accent-warm);
+    position: relative;
+}
+
+.list-item.selected::after {
+    content: '';
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-warm);
+    border-radius: 50%;
+    opacity: 0.35;
+    box-shadow: 0 2px 8px rgba(var(--shadow-primary, 232, 145, 107), 0.10);
+    pointer-events: none;
 }
 
 .list-item h3 {
@@ -193,7 +256,7 @@ header {
 .list-item h3 a {
     color: var(--secondary);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.2s;
 }
 
 .list-item h3 a:hover {
@@ -202,8 +265,9 @@ header {
 
 .list-item p {
     margin: 0;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--text-secondary);
+    font-weight: 300;
 }
 
 /* Tools list */
@@ -232,7 +296,7 @@ header {
 .tools-list a {
     color: var(--text-primary);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.2s;
 }
 
 .tools-list a:hover {
@@ -255,7 +319,7 @@ header {
 .social-icon {
     font-size: 1.5rem;
     color: var(--accent-cool);
-    transition: color 0.2s ease;
+    transition: color 0.2s;
 }
 
 .social-icon:hover {
@@ -270,11 +334,15 @@ footer {
     margin-top: 4rem;
     font-size: 0.9rem;
     color: var(--text-secondary);
+    border: none;
+    box-shadow: none;
 }
 
 /* App Header Specific Styles */
 .app-header {
     padding: 0.5rem 0;
+    box-shadow: 0 2px 16px rgba(var(--shadow-secondary, 42, 51, 66), 0.07); /* Match header shadow */
+    border-radius: 0 0 16px 16px;
 }
 
 .logos-container {
@@ -291,44 +359,48 @@ footer {
     text-decoration: none;
 }
 
+.app-name:hover {
+    color: var(--accent-warm);
+    transform: scale(1.07);
+}
+
 .divider {
-    width: 1px;
-    height: 25px;
-    background: rgba(255,255,255,0.2);
-    margin: 0 0.5rem;
+    width: 2px;
+    height: 32px;
+    background: linear-gradient(to bottom, var(--accent-cool), var(--accent-warm)); /* Modern gradient divider */
+    margin: 0 0.75rem;
+    border-radius: 2px;
+    opacity: 0.7;
+    transition: background 0.3s;
 }
 
 .parent-logo-img {
     height: 50px;
     width: auto;
     opacity: 0.9;
-    transition: opacity 0.2s ease;
 }
 
 .parent-logo-img:hover {
+    transform: scale(1.07);
     opacity: 1;
 }
 
 /* Badge styles */
 .badge {
-    display: inline-block;
-    font-size: 0.7rem;
-    padding: 0.2rem 0.5rem;
-    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.72rem;
+    padding: 0.18rem 0.6rem;
+    border-radius: 16px;
     margin-left: 0.5rem;
     font-weight: 500;
     vertical-align: middle;
-}
-
-.badge-platform {
-    background-color: var(--accent-cool);
-    color: white;
-}
-
-.badge-independent {
-    background-color: var(--text-secondary);
-    opacity: 0.7;
-    color: white;
+    box-shadow: 0 1px 6px rgba(var(--shadow-primary, 232, 145, 107), 0.08);
+    border: 1px solid var(--accent-warm);
+    background-color: var(--accent-warm);
+    color: var(--text-primary);
+    opacity: 0.95;
+    white-space: nowrap;
 }
 
 /* Mobile responsiveness */
@@ -350,16 +422,8 @@ footer {
         margin-top: 0.5rem;
     }
     
-    .header-content {
-        text-align: center;
-    }
-    
     .tools-list {
         grid-template-columns: 1fr;
-    }
-    
-    .header-compact .logo-img {
-        height: 30px;
     }
     
     .hero-section {
@@ -368,6 +432,24 @@ footer {
     
     .hero-description {
         font-size: 1.1rem;
+    }
+
+    .top-bar, .app-header {
+        border-radius: 0 0 10px 10px;
+    }
+
+    .divider {
+        height: 20px;
+        margin: 0 0.5rem;
+    }
+
+    .list-item {
+        padding: 1.25rem;
+        border-radius: 12px;
+    }
+
+    .section {
+        margin: 3rem 0;
     }
 }
 
