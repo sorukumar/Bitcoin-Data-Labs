@@ -1,39 +1,56 @@
-# Using Bitcoin Data Labs Components in Your App
+# Using Bitcoin Data Labs Components
 
-This guide explains how to integrate the Bitcoin Data Labs header and footer components into your application.
+This guide provides everything you need to integrate the unified Bitcoin Data Labs header and footer into your application. These components are designed to be mobile-responsive, fluid, and brand-consistent.
 
-## Quick Start
+## Prerequisites
 
-Add this code to your HTML file:
+1. **Font Awesome**: The components use Font Awesome icons.
+2. **Standard IDs**: You must have `<div id="header"></div>` and `<div id="footer"></div>` in your HTML.
+
+## Standard Integration (Recommended)
+
+Copy-paste this structure into your application's shell:
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Your existing head content -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Add Bitcoin Data Labs styles -->
+    <!-- 1. Unified Styles (Load BEFORE your own CSS) -->
     <link rel="stylesheet" href="https://sorukumar.github.io/Bitcoin-Data-Labs/styles/styles.css">
-    <!-- Required for icons -->
+    
+    <!-- 2. Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
-    <!-- Header placeholder -->
+
+<!-- 3. Add 'has-fixed-header' to handle the shared header height automatically -->
+<body class="has-fixed-header">
+    
     <div id="header"></div>
 
-    <!-- Your app content here -->
+    <main class="container">
+        <!-- APP CONTENT HERE -->
+    </main>
 
-    <!-- Footer placeholder -->
     <div id="footer"></div>
 
-    <!-- Add Bitcoin Data Labs components -->
-    <script src="https://sorukumar.github.io/Bitcoin-Data-Labs/components/include.js"></script>
+    <!-- 4. Component Loader -->
+    <script src="https://sorukumar.github.io/Bitcoin-Data-Labs/components/app-components.js"></script>
+    
+    <!-- 5. Initialization -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            BitcoinLabsComponents.init({
+            BitcoinLabsApp.init({
                 isApp: true,
-                appName: "Your App Name",  // Replace with your app name
-                appHomeUrl: "https://github.com/yourusername/your-repo"  // Replace with your repo URL
+                appName: "Your Project Name",
+                appHomeUrl: "index.html",
+                navLinks: [
+                    { name: 'Dashboard', url: 'index.html' },
+                    { name: 'Analytics', url: 'analytics.html' },
+                    { name: 'GitHub', url: 'https://github.com/...' }
+                ]
             });
         });
     </script>
@@ -41,82 +58,45 @@ Add this code to your HTML file:
 </html>
 ```
 
-## Configuration Options
+## Configuration Schema
 
-The `BitcoinLabsComponents.init()` accepts a configuration object with these properties:
+The `init()` function accepts the following parameters:
 
-- `isApp` (boolean): Set to true to use the app header layout
-- `appName` (string): Your application's name
-- `appHomeUrl` (string): URL to your application's homepage or repository
+| Parameter | Type | Required | Description |
+| :--- | :--- | :--- | :--- |
+| `isApp` | `boolean` | Yes | Set to `true` to enable the split-logo "App Branding" layout. |
+| `appName` | `string` | Yes | The title of your app (e.g., "PlebDashboard"). |
+| `appHomeUrl` | `string`| Yes | The home path for your app. |
+| `navLinks` | `array` | No | List of `{ name, url }` objects. Collapses to hamburger menu on mobile. |
+| `scrollThreshold` | `number` | No | Scroll distance before header compresses. Default: `30`. |
+| `debug` | `boolean` | No | Enables console logging for loading lifecycle. |
 
-## Features
+## Feature Showcase
 
-1. **Smart Header Behavior**
-   - Compresses on scroll
-   - Maintains brand consistency
-   - Responsive design
+### 1. Dual Branding
+When `isApp: true` is used, the header displays your application name prominently, followed by a vertical divider and the "Bitcoin Data Labs" parent brand.
 
-2. **Branding Integration**
-   - Shows your app name alongside Bitcoin Data Labs branding
-   - Includes social links
-   - Consistent styling
+### 2. Auto-Adaptive Navigation
+You no longer need to build separate mobile navigations.
+- **Desktop**: Links appear horizontally next to social icons.
+- **Mobile (<768px)**: A hamburger menu appears. Social links and `navLinks` are moved into a vertical slide-down menu.
 
-3. **Automatic Mobile Optimization**
-   - Responsive layout
-   - Touch-friendly
-   - Compact design on smaller screens
-
-## Common Use Cases
-
-### Basic Integration
-```javascript
-BitcoinLabsComponents.init({
-    isApp: true,
-    appName: "PlebDashboard",
-    appHomeUrl: "https://github.com/sorukumar/plebdashboard"
-});
+### 3. CSS Variable Exposure
+You can theme the component shell using your app's CSS:
+```css
+:root {
+  --max-width: 1400px; /* Adjust header content width */
+  --header-height: 90px;
+  --primary: #your-color; /* Adjust accent color */
+}
 ```
 
-### Customizing Header Behavior
-The header automatically compresses on scroll. If you need to customize this behavior, you can modify the threshold:
+## Migration from `include.js`
+If you were using the old `include.js` or `BitcoinLabsComponents` class:
+1. Update the script source to `app-components.js`.
+2. Update the class reference to `BitcoinLabsApp`.
+3. Add `class="has-fixed-header"` to your `body` tag.
 
-```javascript
-BitcoinLabsComponents.init({
-    isApp: true,
-    appName: "Your App",
-    appHomeUrl: "your-url",
-    scrollThreshold: 100  // Optional: customize when header compresses (in pixels)
-});
-```
-
-## Troubleshooting
-
-1. **Components Not Loading**
-   - Check if the URLs are correct
-   - Ensure you have internet connectivity
-   - Check browser console for errors
-
-2. **Styling Issues**
-   - Make sure the styles.css is loaded before your app's CSS
-   - Use browser dev tools to inspect elements
-
-## Best Practices
-
-1. **Load Order**
-   - Include the CSS files in the head
-   - Place component divs at the start and end of body
-   - Load include.js just before closing body tag
-
-2. **Responsive Design**
-   - Don't override the component's responsive styles
-   - Test on multiple screen sizes
-
-3. **Performance**
-   - Components are loaded asynchronously
-   - Resources are cached by the browser
-
-## Support
-
-For issues or suggestions:
-- Open an issue in the [Bitcoin Data Labs repository](https://github.com/sorukumar/Bitcoin-Data-Labs)
-- Contact through Twitter [@Soru_kumar](https://x.com/Soru_kumar)
+## Support & Contributing
+- **Issues**: Open in [Bitcoin-Data-Labs](https://github.com/sorukumar/Bitcoin-Data-Labs).
+- **Updates**: Components are served via GitHub Pages; updates to the main repo are immediate.
