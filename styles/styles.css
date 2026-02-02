@@ -32,6 +32,7 @@
 
     /* Header & Navigation Themes (Override these in your app for custom branding) */
     --bdl-header-bg: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+    --bdl-header-bg-compressed: var(--bg-secondary);
     --bdl-subnav-bg: var(--bg-primary);
     --bdl-nav-active-bg: rgba(232, 145, 107, 0.1);
     --bdl-nav-active-text: var(--primary);
@@ -50,7 +51,11 @@
     box-shadow: 0 2px 16px rgba(var(--shadow-secondary, 42, 51, 66), 0.07);
     border-radius: 0 0 16px 16px;
     overflow: visible;
-    /* Changed from hidden to allow nav dropdowns */
+}
+
+/* Remove rounding when sub-nav is present to make them flush */
+body.has-sub-nav .top-bar {
+    border-radius: 0;
 }
 
 .top-container {
@@ -84,7 +89,7 @@
 
 /* Header Compression Styles */
 .header-compressed {
-    background: var(--bg-secondary);
+    background: var(--bdl-header-bg-compressed);
 }
 
 .header-compressed .top-container {
