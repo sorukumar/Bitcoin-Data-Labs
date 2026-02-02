@@ -619,6 +619,7 @@ footer {
         flex-direction: column;
         gap: 0.5rem;
         padding: 1rem;
+        height: auto !important;
     }
 
     .logos-container,
