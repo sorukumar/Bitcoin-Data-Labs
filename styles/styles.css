@@ -531,6 +531,22 @@ footer {
         margin-top: 0;
     }
 
+    /* Fixed social links overlapping issue in 1st image */
+    @media screen and (max-width: 500px) {
+        body.has-nav .header-right-desktop {
+            display: none;
+        }
+
+        body.has-nav .logos-container {
+            max-width: 100%;
+            flex: 1;
+        }
+
+        body.has-nav .app-name {
+            font-size: 1rem;
+        }
+    }
+
     /* When nav exists, hide the sub-nav bar on mobile and move links to hamburger menu */
     body.has-nav .app-sub-nav {
         display: none !important;
@@ -556,20 +572,44 @@ footer {
         display: flex;
     }
 
-    .app-nav {
+    /* Target the mobile menu content specifically */
+    .mobile-nav-content {
+        display: flex;
         flex-direction: column;
         width: 100%;
-        gap: 0.5rem;
-        margin-right: 0;
-        margin-bottom: 2rem;
+        gap: 1.5rem;
+        margin-bottom: 3rem;
         text-align: center;
     }
 
-    .app-nav .nav-link {
-        width: 80%;
-        padding: 0.8rem;
-        font-size: 1.1rem;
-        border-radius: 12px;
+    .mobile-nav-content .nav-link {
+        display: block;
+        font-size: 1.8rem;
+        /* Large, premium menu font */
+        font-weight: 600;
+        color: var(--secondary);
+        text-decoration: none;
+        padding: 0.5rem;
+        transition: color 0.2s;
+    }
+
+    .mobile-nav-content .nav-link.active {
+        color: var(--primary);
+    }
+
+    .mobile-socials {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        gap: 2.5rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .mobile-socials .social-icon {
+        font-size: 1.8rem;
+        color: var(--secondary);
+        opacity: 0.8;
     }
 
     .social-links-top {
