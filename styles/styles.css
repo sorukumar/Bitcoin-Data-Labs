@@ -114,7 +114,8 @@
 }
 
 .nav-links-wrapper {
-    display: flex;
+    display: none;
+    /* Hidden on desktop */
     align-items: center;
     gap: 1.5rem;
 }
