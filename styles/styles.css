@@ -613,3 +613,24 @@ footer {
         padding: 0.8rem 1.5rem;
     }
 }
+
+@media screen and (max-width: 480px) {
+    .top-container {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .logos-container,
+    .logo,
+    .nav-links-wrapper,
+    .social-links-top {
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+    }
+
+    .divider {
+        display: none;
+    }
+}
