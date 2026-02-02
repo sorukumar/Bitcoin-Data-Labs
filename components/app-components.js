@@ -57,6 +57,9 @@ class BitcoinLabsAppComponents {
             const appName = document.getElementById('currentAppName');
             const appLink = document.getElementById('appHomeLink');
             const appNav = document.getElementById('appNavLinks');
+            const mobileNav = document.getElementById('mobileNavContent');
+            const mobileSocials = document.getElementById('mobileSocials');
+            const appSubNav = document.getElementById('appSubNav');
 
             if (appName) {
                 if (config.appName) {
@@ -74,16 +77,28 @@ class BitcoinLabsAppComponents {
             }
 
             // Inject app-specific navigation if provided
-            if (appNav && config.navLinks && Array.isArray(config.navLinks) && config.navLinks.length > 0) {
+            if (config.navLinks && Array.isArray(config.navLinks) && config.navLinks.length > 0) {
                 // Add class to header to indicate we have navigation (for CSS)
-                const headerBar = document.querySelector('.top-bar');
+                const headerBar = document.querySelector('.app-header-main');
                 if (headerBar) headerBar.classList.add('has-nav');
+                document.body.classList.add('has-fixed-header');
 
                 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-                appNav.innerHTML = config.navLinks.map(link => {
+                const navHtml = config.navLinks.map(link => {
                     const isActive = currentPath === link.url || (currentPath === '' && link.url === 'index.html');
                     return `<a href="${link.url}" class="nav-link ${isActive ? 'active' : ''}">${link.name}</a>`;
                 }).join('');
+
+                if (appNav) appNav.innerHTML = navHtml;
+                if (mobileNav) mobileNav.innerHTML = navHtml;
+
+                // Sync socials to mobile if they exist
+                if (mobileSocials) {
+                    const desktopSocials = document.querySelector('.social-links-top');
+                    if (desktopSocials) mobileSocials.innerHTML = desktopSocials.innerHTML;
+                }
+            } else if (appSubNav) {
+                appSubNav.style.display = 'none';
             }
         }, 100);
     }
@@ -112,12 +127,12 @@ class BitcoinLabsAppComponents {
         if (!this._behaviorInitialized) {
             document.addEventListener('click', (e) => {
                 const menuBtn = e.target.closest('.mobile-menu-btn');
-                const navLinks = document.querySelector('.nav-links-wrapper');
+                const navWrapper = document.getElementById('mobileMenuWrapper');
 
                 if (menuBtn) {
                     e.stopPropagation();
-                    if (navLinks) {
-                        navLinks.classList.toggle('active');
+                    if (navWrapper) {
+                        navWrapper.classList.toggle('active');
                         const icon = menuBtn.querySelector('i');
                         if (icon) {
                             icon.classList.toggle('fa-bars');
@@ -128,9 +143,9 @@ class BitcoinLabsAppComponents {
                 }
 
                 // Close menu when clicking outside
-                if (navLinks && navLinks.classList.contains('active')) {
-                    if (!navLinks.contains(e.target)) {
-                        navLinks.classList.remove('active');
+                if (navWrapper && navWrapper.classList.contains('active')) {
+                    if (!navWrapper.contains(e.target)) {
+                        navWrapper.classList.remove('active');
                         const activeBtn = document.querySelector('.mobile-menu-btn');
                         if (activeBtn) {
                             const icon = activeBtn.querySelector('i');
