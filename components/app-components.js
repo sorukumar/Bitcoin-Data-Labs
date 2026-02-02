@@ -82,6 +82,7 @@ class BitcoinLabsAppComponents {
                 const headerBar = document.querySelector('.app-header-main');
                 if (headerBar) headerBar.classList.add('has-nav');
                 document.body.classList.add('has-fixed-header');
+                document.body.classList.add('has-sub-nav');
 
                 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
                 const navHtml = config.navLinks.map(link => {

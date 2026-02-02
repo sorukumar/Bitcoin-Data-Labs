@@ -126,6 +126,11 @@ body {
 
 /* Utility to add space for the fixed header */
 .has-fixed-header {
+    padding-top: var(--header-height);
+}
+
+/* Extra space for apps with sub-navigation */
+.has-sub-nav.has-fixed-header {
     padding-top: calc(var(--header-height) + var(--subnav-height) + 20px);
 }
 
