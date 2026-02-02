@@ -381,9 +381,13 @@ footer {
     z-index: calc(var(--z-header) - 1);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     border-radius: 0 0 16px 16px;
-    transition: all 0.3s ease;
+    transition: top 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     align-items: center;
+}
+
+body.header-scrolled .app-sub-nav {
+    top: var(--header-height-compressed);
 }
 
 .nav-container {
@@ -396,9 +400,7 @@ footer {
     /* Center tabs for better UX */
 }
 
-.header-compressed+.app-sub-nav {
-    top: var(--header-height-compressed);
-}
+/* Removed sibling selector to move toward body-class based logic */
 
 .logos-container {
     display: flex;

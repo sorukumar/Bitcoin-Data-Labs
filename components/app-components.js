@@ -110,10 +110,15 @@ class BitcoinLabsAppComponents {
 
         const updateHeader = () => {
             const header = document.querySelector('#header .top-bar');
+            const shouldCompress = window.scrollY > scrollThreshold;
+
             if (header) {
-                const shouldCompress = window.scrollY > scrollThreshold;
                 header.classList.toggle('header-compressed', shouldCompress);
             }
+
+            // Apply to body for robust sub-nav and mobile-menu coordination
+            document.body.classList.toggle('header-scrolled', shouldCompress);
+
             ticking = false;
         };
 
