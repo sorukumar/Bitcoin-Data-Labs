@@ -1,15 +1,19 @@
-# Using Bitcoin Data Labs Components
+# Bitcoin Data Labs UI Shell - Integration Guide
 
-This guide provides everything you need to integrate the unified Bitcoin Data Labs header and footer into your application. These components are designed to be mobile-responsive, fluid, and brand-consistent.
+This guide provides technical specifications for integrating the unified header and footer components into standalone applications within the Bitcoin Data Labs ecosystem.
 
-## Prerequisites
+## 🚀 Pre-flight Checklist for AI Agents
 
-1. **Font Awesome**: The components use Font Awesome icons.
-2. **Standard IDs**: You must have `<div id="header"></div>` and `<div id="footer"></div>` in your HTML.
+When working on a repository integration, ensure the following steps are followed sequentially:
 
-## Standard Integration (Recommended)
+1.  **Remove Legacy Mobile Navs**: Delete any local hamburger menus, mobile navigation CSS/JS, or custom header logic. The shared library handles this natively.
+2.  **Clear CSS Overrides**: Look for `!important` rules targeting `header`, `#header`, or `footer`. These usually cause layout breakage with the modern fluid shell.
+3.  **Bootstrap Body**: Ensure the `<body>` tag has the `.has-fixed-header` class.
 
-Copy-paste this structure into your application's shell:
+## 🛠️ Step-by-Step Integration
+
+### 1. HTML Structure
+Ensure your `index.html` (and all other pages) follows this skeleton:
 
 ```html
 <!DOCTYPE html>
@@ -18,38 +22,37 @@ Copy-paste this structure into your application's shell:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- 1. Unified Styles (Load BEFORE your own CSS) -->
+    <!-- Unified Styles (Load BEFORE your app's CSS) -->
     <link rel="stylesheet" href="https://sorukumar.github.io/Bitcoin-Data-Labs/styles/styles.css">
     
-    <!-- 2. Icons -->
+    <!-- Required Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<!-- 3. Add 'has-fixed-header' to handle the shared header height automatically -->
 <body class="has-fixed-header">
     
+    <!-- Component Placeholders -->
     <div id="header"></div>
 
     <main class="container">
-        <!-- APP CONTENT HERE -->
+        <!-- Your App Content -->
     </main>
 
     <div id="footer"></div>
 
-    <!-- 4. Component Loader -->
+    <!-- Component Library -->
     <script src="https://sorukumar.github.io/Bitcoin-Data-Labs/components/app-components.js"></script>
     
-    <!-- 5. Initialization -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // INITIALIZATION
             BitcoinLabsApp.init({
                 isApp: true,
-                appName: "Your Project Name",
+                appName: "Your App Title",
                 appHomeUrl: "index.html",
                 navLinks: [
                     { name: 'Dashboard', url: 'index.html' },
-                    { name: 'Analytics', url: 'analytics.html' },
-                    { name: 'GitHub', url: 'https://github.com/...' }
+                    { name: 'Explorer', url: 'explorer.html' }
                 ]
             });
         });
@@ -58,45 +61,34 @@ Copy-paste this structure into your application's shell:
 </html>
 ```
 
-## Configuration Schema
-
-The `init()` function accepts the following parameters:
+## ⚙️ Configuration Schema
 
 | Parameter | Type | Required | Description |
 | :--- | :--- | :--- | :--- |
-| `isApp` | `boolean` | Yes | Set to `true` to enable the split-logo "App Branding" layout. |
-| `appName` | `string` | Yes | The title of your app (e.g., "PlebDashboard"). |
-| `appHomeUrl` | `string`| Yes | The home path for your app. |
-| `navLinks` | `array` | No | List of `{ name, url }` objects. Collapses to hamburger menu on mobile. |
-| `scrollThreshold` | `number` | No | Scroll distance before header compresses. Default: `30`. |
-| `debug` | `boolean` | No | Enables console logging for loading lifecycle. |
+| `isApp` | `boolean` | Yes | Switches to the split-logo "App Name \| BDL" branding. |
+| `appName` | `string` | Yes | The primary title shown in the header. |
+| `appHomeUrl` | `string` | Yes | Local path or global URL for the logo link. |
+| `navLinks` | `array` | No | List of `{ name, url }` objects. **Note**: If provided, mobile view uses a hamburger menu. If omitted, social icons stay in the top bar. |
+| `scrollThreshold` | `number` | No | Pixels to scroll before header compresses (Default: `30`). |
+| `debug` | `boolean` | No | Logs detailed lifecycle events to the browser console. |
 
-## Feature Showcase
+## 🎨 Layout & Theming
 
-### 1. Dual Branding
-When `isApp: true` is used, the header displays your application name prominently, followed by a vertical divider and the "Bitcoin Data Labs" parent brand.
+The shell is fluid and uses CSS variables for effortless synchronization. You can override these in your app's `:root`:
 
-### 2. Auto-Adaptive Navigation
-You no longer need to build separate mobile navigations.
-- **Desktop**: Links appear horizontally next to social icons.
-- **Mobile (<768px)**: A hamburger menu appears. Social links and `navLinks` are moved into a vertical slide-down menu.
+- `--max-width`: Controls the content constraint within the header/container (default `900px`).
+- `--header-height`: Standard height (default `90px`).
+- `--z-header`: Stacking priority (default `10000`).
 
-### 3. CSS Variable Exposure
-You can theme the component shell using your app's CSS:
-```css
-:root {
-  --max-width: 1400px; /* Adjust header content width */
-  --header-height: 90px;
-  --primary: #your-color; /* Adjust accent color */
-}
-```
+## 📱 Mobile Behavior
+- **Breakpoints**: The shell switches to mobile view at **768px**.
+- **Hamburger**: JS automatically detects the presence of `navLinks`. If links exist, a hamburger menu button is dynamically enabled. If not, the header remains static with social links visible.
 
-## Migration from `include.js`
-If you were using the old `include.js` or `BitcoinLabsComponents` class:
-1. Update the script source to `app-components.js`.
-2. Update the class reference to `BitcoinLabsApp`.
-3. Add `class="has-fixed-header"` to your `body` tag.
+## 🔄 Migration Guide
+If migrating from `include.js` or `BitcoinLabsComponents`:
+1.  **Global Object**: Change all references from `BitcoinLabsComponents` to `BitcoinLabsApp`.
+2.  **Script Path**: Point the script src to `https://sorukumar.github.io/Bitcoin-Data-Labs/components/app-components.js`.
+3.  **Link Cleanup**: Move your hardcoded app navigation into the `navLinks` array in the `init()` call.
 
-## Support & Contributing
-- **Issues**: Open in [Bitcoin-Data-Labs](https://github.com/sorukumar/Bitcoin-Data-Labs).
-- **Updates**: Components are served via GitHub Pages; updates to the main repo are immediate.
+## 🆘 Support
+Report issues or propose branding updates in the [Bitcoin-Data-Labs repository](https://github.com/sorukumar/Bitcoin-Data-Labs).
