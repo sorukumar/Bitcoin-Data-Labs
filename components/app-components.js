@@ -78,9 +78,9 @@ class BitcoinLabsAppComponents {
 
             // Inject app-specific navigation if provided
             if (config.navLinks && Array.isArray(config.navLinks) && config.navLinks.length > 0) {
-                // Add class to header to indicate we have navigation (for CSS)
                 const headerBar = document.querySelector('.app-header-main');
                 if (headerBar) headerBar.classList.add('has-nav');
+                document.body.classList.add('has-nav'); // NEW: Add to body for global scoping
                 document.body.classList.add('has-fixed-header');
                 document.body.classList.add('has-sub-nav');
 
@@ -93,10 +93,10 @@ class BitcoinLabsAppComponents {
                 if (appNav) appNav.innerHTML = navHtml;
                 if (mobileNav) mobileNav.innerHTML = navHtml;
 
-                // Sync socials to mobile if they exist
-                if (mobileSocials) {
-                    const desktopSocials = document.querySelector('.social-links-top');
-                    if (desktopSocials) mobileSocials.innerHTML = desktopSocials.innerHTML;
+                // Also copy socials to mobile menu if container exists
+                const desktopSocials = document.querySelector('.social-links-top');
+                if (mobileSocials && desktopSocials) {
+                    mobileSocials.innerHTML = desktopSocials.innerHTML;
                 }
             } else if (appSubNav) {
                 appSubNav.style.display = 'none';
