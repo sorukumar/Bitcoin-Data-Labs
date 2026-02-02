@@ -500,12 +500,29 @@ footer {
 
     /* Header Mobile Layout */
     .mobile-menu-btn {
+        display: none;
+        /* Hidden by default, shown via JS if links exist */
+    }
+
+    /* Only show hamburger if we actually have links to show */
+    .has-nav .mobile-menu-btn {
         display: block;
     }
 
+    /* If no nav, keep social links visible on the right */
     .nav-links-wrapper {
+        display: flex;
+        width: auto;
+        flex-direction: row;
+        padding: 0;
+        background: transparent;
+        border: none;
+        margin-top: 0;
+    }
+
+    /* When nav exists, hide the wrapper until toggled */
+    .has-nav .nav-links-wrapper {
         display: none;
-        /* Hidden by default */
         width: 100%;
         flex-direction: column;
         align-items: center;
@@ -515,7 +532,7 @@ footer {
         margin-top: 0.5rem;
     }
 
-    .nav-links-wrapper.active {
+    .has-nav .nav-links-wrapper.active {
         display: flex;
     }
 

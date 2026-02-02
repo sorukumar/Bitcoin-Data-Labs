@@ -74,7 +74,11 @@ class BitcoinLabsAppComponents {
             }
 
             // Inject app-specific navigation if provided
-            if (appNav && config.navLinks && Array.isArray(config.navLinks)) {
+            if (appNav && config.navLinks && Array.isArray(config.navLinks) && config.navLinks.length > 0) {
+                // Add class to header to indicate we have navigation (for CSS)
+                const headerBar = document.querySelector('.top-bar');
+                if (headerBar) headerBar.classList.add('has-nav');
+
                 const currentPath = window.location.pathname.split('/').pop() || 'index.html';
                 appNav.innerHTML = config.navLinks.map(link => {
                     const isActive = currentPath === link.url || (currentPath === '' && link.url === 'index.html');
