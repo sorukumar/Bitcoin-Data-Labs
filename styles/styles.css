@@ -113,6 +113,12 @@
     transform: scale(1.15);
 }
 
+.nav-links-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
     line-height: 1.6;
@@ -423,6 +429,18 @@ footer {
     height: 50px;
     width: auto;
     opacity: 0.8;
+}
+
+/* Mobile Menu Button - Hidden on Desktop by default */
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
 }
 
 /* App Navigation Tabs */
