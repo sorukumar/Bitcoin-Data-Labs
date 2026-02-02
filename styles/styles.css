@@ -29,11 +29,17 @@
     --header-height-compressed: 65px;
     --max-width: 1000px;
     --z-header: 10000;
+
+    /* Header & Navigation Themes (Override these in your app for custom branding) */
+    --bdl-header-bg: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+    --bdl-subnav-bg: var(--bg-primary);
+    --bdl-nav-active-bg: rgba(232, 145, 107, 0.1);
+    --bdl-nav-active-text: var(--primary);
 }
 
 /* Top bar styles */
 .top-bar {
-    background: linear-gradient(to bottom, var(--bg-primary), var(--bg-secondary));
+    background: var(--bdl-header-bg);
     padding: 0;
     position: fixed;
     width: 100%;
@@ -377,7 +383,7 @@ footer {
     left: 0;
     width: 100%;
     height: var(--subnav-height);
-    background: var(--bg-primary);
+    background: var(--bdl-subnav-bg);
     /* Match page background for classy floating look */
     z-index: calc(var(--z-header) - 1);
     box-shadow: none;
@@ -477,8 +483,8 @@ body.header-scrolled .app-sub-nav {
 }
 
 .app-nav .nav-link.active {
-    background: rgba(232, 145, 107, 0.1);
-    color: var(--primary);
+    background: var(--bdl-nav-active-bg);
+    color: var(--bdl-nav-active-text);
     font-weight: 600;
 }
 
