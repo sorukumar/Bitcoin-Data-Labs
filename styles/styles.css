@@ -377,12 +377,12 @@ footer {
     left: 0;
     width: 100%;
     height: var(--subnav-height);
-    background: #ffffff;
-    /* Crisp white shelf */
+    background: var(--bg-primary);
+    /* Match page background for classy floating look */
     z-index: calc(var(--z-header) - 1);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-    /* Very subtle depth */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: none;
+    /* Let it float naturally */
+    border-bottom: none;
     border-radius: 0 0 16px 16px;
     transition: top 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
     display: flex;
