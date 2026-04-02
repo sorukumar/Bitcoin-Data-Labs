@@ -306,6 +306,28 @@ body {
     font-weight: 300;
 }
 
+/* Badge styles */
+.badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    margin-left: 0.5rem;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+.badge-platform {
+    background-color: var(--accent-cool);
+    color: white;
+}
+
+.badge-independent {
+    background-color: var(--text-secondary);
+    opacity: 0.7;
+    color: white;
+}
+
 /* Tools list */
 .tools-list {
     list-style-type: none;
