@@ -1,8 +1,21 @@
 class BitcoinLabsComponents {
     static getBasePath() {
-        // Check if we're on GitHub Pages or local development
         const currentPath = window.location.pathname;
-        return currentPath.includes('Bitcoin-Data-Labs') ? '/Bitcoin-Data-Labs' : '';
+        if (currentPath.includes('Bitcoin-Data-Labs')) {
+            return '/Bitcoin-Data-Labs';
+        }
+
+        const script = document.currentScript || Array.from(document.getElementsByTagName('script')).reverse().find(script => script.src && script.src.includes('/components/include.js'));
+        if (script && script.src) {
+            try {
+                const url = new URL(script.src, window.location.href);
+                return url.pathname.replace(/\/components\/include\.js$/, '') || '';
+            } catch (error) {
+                console.warn('Bitcoin Labs include: could not derive base path from script src', error);
+            }
+        }
+
+        return '';
     }
 
     static async loadComponent(elementId, componentPath, config = {}) {

@@ -4,8 +4,39 @@
  * Version: 1.0.0
  */
 class BitcoinLabsAppComponents {
-    static baseUrl = 'https://sorukumar.github.io/Bitcoin-Data-Labs';
+    static _baseUrl;
     static version = '1.0.0';
+
+    static get baseUrl() {
+        if (this._baseUrl) return this._baseUrl;
+
+        let scriptSrc = '';
+        if (document.currentScript && document.currentScript.src) {
+            scriptSrc = document.currentScript.src;
+        } else {
+            const scripts = Array.from(document.getElementsByTagName('script')).reverse();
+            const found = scripts.find(script => script.src && script.src.includes('/components/app-components.js'));
+            if (found) scriptSrc = found.src;
+        }
+
+        try {
+            if (scriptSrc) {
+                const url = new URL(scriptSrc, window.location.href);
+                const basePath = url.pathname.replace(/\/components\/app-components\.js$/, '');
+                this._baseUrl = `${url.origin}${basePath}`.replace(/\/$/, '');
+                return this._baseUrl;
+            }
+        } catch (error) {
+            console.warn('Bitcoin Data Labs: could not derive baseUrl from script src', error);
+        }
+
+        if (window.location.hostname === 'sorukumar.github.io') {
+            this._baseUrl = 'https://sorukumar.github.io/Bitcoin-Data-Labs';
+        } else {
+            this._baseUrl = window.location.origin;
+        }
+        return this._baseUrl;
+    }
 
     static async loadComponent(elementId, componentPath, config = {}) {
         try {
@@ -46,6 +77,10 @@ class BitcoinLabsAppComponents {
         return html
             .replace(/src="\/Bitcoin-Data-Labs\//g, `src="${this.baseUrl}/`)
             .replace(/href="\/Bitcoin-Data-Labs\//g, `href="${this.baseUrl}/`)
+            .replace(/src="https?:\/\/sorukumar\.github\.io\/Bitcoin-Data-Labs\//g, `src="${this.baseUrl}/`)
+            .replace(/href="https?:\/\/sorukumar\.github\.io\/Bitcoin-Data-Labs\//g, `href="${this.baseUrl}/`)
+            .replace(/src="https?:\/\/bitcoindatalabs\.org\//g, `src="${this.baseUrl}/`)
+            .replace(/href="https?:\/\/bitcoindatalabs\.org\//g, `href="${this.baseUrl}/`)
             .replace(/src="\.\.\/logo-light\.png"/g, `src="${this.baseUrl}/logo-light.png"`)
             .replace(/src="\.\.\/([^"]+)"/g, `src="${this.baseUrl}/$1"`)
             .replace(/href="\.\.\/([^"]+)"/g, `href="${this.baseUrl}/$1"`);
