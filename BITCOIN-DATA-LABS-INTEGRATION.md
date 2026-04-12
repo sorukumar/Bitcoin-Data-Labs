@@ -23,7 +23,7 @@ Ensure your `index.html` (and all other pages) follows this skeleton:
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Unified Styles (Load BEFORE your app's CSS) -->
-    <link rel="stylesheet" href="https://sorukumar.github.io/Bitcoin-Data-Labs/styles/styles.css">
+    <link rel="stylesheet" href="https://bitcoindatalabs.org/styles/styles.css">
     
     <!-- Required Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -41,7 +41,7 @@ Ensure your `index.html` (and all other pages) follows this skeleton:
     <div id="footer"></div>
 
     <!-- Component Library -->
-    <script src="https://sorukumar.github.io/Bitcoin-Data-Labs/components/app-components.js"></script>
+    <script src="https://bitcoindatalabs.org/components/app-components.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -87,8 +87,14 @@ The shell is fluid and uses CSS variables for effortless synchronization. You ca
 ## 🔄 Migration Guide
 If migrating from `include.js` or `BitcoinLabsComponents`:
 1.  **Global Object**: Change all references from `BitcoinLabsComponents` to `BitcoinLabsApp`.
-2.  **Script Path**: Point the script src to `https://sorukumar.github.io/Bitcoin-Data-Labs/components/app-components.js`.
-3.  **Link Cleanup**: Move your hardcoded app navigation into the `navLinks` array in the `init()` call.
+2.  **Script Path**: Point the script src to `https://bitcoindatalabs.org/components/app-components.js`.
+   - Use HTTPS explicitly. Avoid `http://bitcoindatalabs.org/...` because that will break pages loaded over HTTPS.
+   - Legacy fallback: `https://sorukumar.github.io/Bitcoin-Data-Labs/components/app-components.js` can still work during transition, but only if the redirect chain preserves HTTPS.
+   - If you are still on legacy host paths, use the GitHub Pages URL only as a temporary fallback. Prefer `https://bitcoindatalabs.org/...` for all new integration work.
+3.  **Stylesheet Path**: Load shared CSS from `https://bitcoindatalabs.org/styles/styles.css`.
+   - Do not use `http://bitcoindatalabs.org/styles/styles.css`.
+4.  **Link Cleanup**: Move hardcoded app navigation into the `navLinks` array in the `init()` call.
+5.  **CNAME note**: The repository root `CNAME` file should contain `bitcoindatalabs.org`. This is correct and ensures the custom domain is served by GitHub Pages.
 
 ## 🆘 Support
 Report issues or propose branding updates in the [Bitcoin-Data-Labs repository](https://github.com/sorukumar/Bitcoin-Data-Labs).
