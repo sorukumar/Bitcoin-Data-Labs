@@ -15,35 +15,196 @@
 <body class="has-fixed-header">
     <div id="header"></div>
 
+    <!-- ═══ HERO — Dimmed Data Aesthetic ═══ -->
+    <section class="hero-section">
+        <div class="hero-bg-pattern" aria-hidden="true">
+            <svg viewBox="0 0 700 380" preserveAspectRatio="xMinYMid slice" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                <!-- Network lines -->
+                <g stroke="rgba(232,145,107,0.14)" stroke-width="0.75" fill="none">
+                    <line x1="50" y1="80" x2="170" y2="45"/>
+                    <line x1="50" y1="80" x2="140" y2="175"/>
+                    <line x1="170" y1="45" x2="140" y2="175"/>
+                    <line x1="170" y1="45" x2="275" y2="95"/>
+                    <line x1="140" y1="175" x2="275" y2="95"/>
+                    <line x1="140" y1="175" x2="235" y2="208"/>
+                    <line x1="275" y1="95" x2="380" y2="58"/>
+                    <line x1="275" y1="95" x2="235" y2="208"/>
+                    <line x1="275" y1="95" x2="358" y2="188"/>
+                    <line x1="235" y1="208" x2="358" y2="188"/>
+                    <line x1="380" y1="58" x2="358" y2="188"/>
+                    <line x1="380" y1="58" x2="468" y2="112"/>
+                    <line x1="358" y1="188" x2="468" y2="112"/>
+                    <line x1="358" y1="188" x2="498" y2="235"/>
+                    <line x1="468" y1="112" x2="498" y2="235"/>
+                    <line x1="468" y1="112" x2="590" y2="55"/>
+                    <line x1="468" y1="112" x2="612" y2="188"/>
+                    <line x1="498" y1="235" x2="612" y2="188"/>
+                    <line x1="590" y1="55" x2="612" y2="188"/>
+                    <line x1="590" y1="55" x2="688" y2="118"/>
+                    <line x1="612" y1="188" x2="688" y2="118"/>
+                    <line x1="688" y1="118" x2="698" y2="158"/>
+                    <line x1="698" y1="158" x2="648" y2="248"/>
+                    <line x1="612" y1="188" x2="648" y2="248"/>
+                    <line x1="648" y1="248" x2="698" y2="280"/>
+                    <line x1="698" y1="158" x2="698" y2="280"/>
+                    <line x1="648" y1="248" x2="658" y2="348"/>
+                    <line x1="698" y1="280" x2="658" y2="348"/>
+                    <line x1="140" y1="175" x2="175" y2="330"/>
+                    <line x1="235" y1="208" x2="175" y2="330"/>
+                    <line x1="235" y1="208" x2="318" y2="302"/>
+                    <line x1="175" y1="330" x2="318" y2="302"/>
+                    <line x1="358" y1="188" x2="318" y2="302"/>
+                    <line x1="318" y1="302" x2="438" y2="342"/>
+                    <line x1="498" y1="235" x2="438" y2="342"/>
+                    <line x1="498" y1="235" x2="548" y2="318"/>
+                    <line x1="438" y1="342" x2="548" y2="318"/>
+                    <line x1="612" y1="188" x2="548" y2="318"/>
+                    <line x1="548" y1="318" x2="658" y2="348"/>
+                    <line x1="648" y1="248" x2="548" y2="318"/>
+                </g>
+                <!-- Secondary dim lines -->
+                <g stroke="rgba(130,147,171,0.1)" stroke-width="0.5" fill="none">
+                    <line x1="50" y1="80" x2="235" y2="208"/>
+                    <line x1="170" y1="45" x2="380" y2="58"/>
+                    <line x1="380" y1="58" x2="590" y2="55"/>
+                    <line x1="175" y1="330" x2="438" y2="342"/>
+                    <line x1="438" y1="342" x2="658" y2="348"/>
+                </g>
+                <!-- Nodes -->
+                <g fill="rgba(232,145,107,0.35)">
+                    <circle cx="50" cy="80" r="3"/>
+                    <circle cx="170" cy="45" r="2.5"/>
+                    <circle cx="140" cy="175" r="3"/>
+                    <circle cx="235" cy="208" r="2.5"/>
+                    <circle cx="380" cy="58" r="2.5"/>
+                    <circle cx="468" cy="112" r="3"/>
+                    <circle cx="590" cy="55" r="2.5"/>
+                    <circle cx="688" cy="118" r="3"/>
+                    <circle cx="698" cy="158" r="2.5"/>
+                    <circle cx="175" cy="330" r="2.5"/>
+                    <circle cx="318" cy="302" r="3"/>
+                    <circle cx="438" cy="342" r="2.5"/>
+                    <circle cx="548" cy="318" r="3"/>
+                    <circle cx="658" cy="348" r="2.5"/>
+                    <circle cx="698" cy="280" r="3"/>
+                </g>
+                <!-- Accent hub nodes (key intersections) -->
+                <g fill="rgba(232,145,107,0.45)" stroke="none">
+                    <circle cx="275" cy="95" r="4"/>
+                    <circle cx="358" cy="188" r="4.5"/>
+                    <circle cx="498" cy="235" r="4.5"/>
+                    <circle cx="612" cy="188" r="4"/>
+                    <circle cx="648" cy="248" r="3.5"/>
+                </g>
+                <!-- Accent rings around hub nodes -->
+                <g fill="none" stroke="rgba(232,145,107,0.3)" stroke-width="1">
+                    <circle cx="275" cy="95" r="9"/>
+                    <circle cx="358" cy="188" r="10"/>
+                    <circle cx="498" cy="235" r="10"/>
+                    <circle cx="612" cy="188" r="9"/>
+                </g>
+            </svg>
+        </div>
+        <div class="hero-gradient-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">bitcoindatalabs.org</p>
+            <h1 class="hero-headline">The Lab for <span>Bitcoin</span> Data</h1>
+            <p class="hero-description">
+                We build open-source data platforms, tools, and insights for the Bitcoin ecosystem — a community of data scientists, analysts, and engineers working to learn, build, and educate.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══ THREE PILLARS ═══ -->
+    <section class="pillars-section">
+        <div class="pillars-inner">
+            <div class="pillar-card">
+                <div class="pillar-accent-bar"></div>
+                <p class="pillar-label">The Sandbox</p>
+                <h3 class="pillar-title">Learning by Doing</h3>
+                <p class="pillar-body">Move beyond theory. We provide the environment for you to act as an analyst, play with live data, and master on-chain metrics through direct action.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-accent-bar"></div>
+                <p class="pillar-label">The Forge</p>
+                <h3 class="pillar-title">Building Tools</h3>
+                <p class="pillar-body">Engineering transparency. We develop open-source dashboards and visualization tools that make the Bitcoin network legible and "Bitcoinful" for everyone.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-accent-bar"></div>
+                <p class="pillar-label">The Academy</p>
+                <h3 class="pillar-title">Educate</h3>
+                <p class="pillar-body">Technical literacy for the next generation. We translate complex cryptographic data into actionable knowledge to empower sovereign thinkers.</p>
+            </div>
+        </div>
+    </section>
+
     <div class="bdl-container">
-        <section class="hero-section">
-            <div class="hero-bg-accent"></div>
-            <div class="hero-content">
-                <p class="hero-description">
-                    We build open-source data platform, tools and insights for the Bitcoin ecosystem. We are a community
-                    of data scientists, analysts, and engineers. Join us to learn, build and educate.
-                </p>
+
+        <!-- ═══ THE LAB IN ACTION ═══ -->
+        <section class="section lab-showcase" id="lab-in-action">
+            <h2 class="section-title"><i class="fas fa-microscope"></i> The Lab in Action</h2>
+            <div class="showcase-grid">
+                <a class="showcase-card" href="https://sorukumar.github.io/ln-graph-viz/" target="_blank" rel="noopener noreferrer">
+                    <div class="showcase-img">
+                        <img src="screenshots/ln-graph-viz.png" alt="LN Graph Viz — force-directed Lightning Network topology" loading="lazy">
+                    </div>
+                    <div class="showcase-body">
+                        <p class="showcase-desc">An interactive force-directed graph for exploring the full topology of the Lightning Network in real time.</p>
+                        <span class="btn-ghost">Open Dashboard →</span>
+                    </div>
+                </a>
+                <a class="showcase-card" href="https://sorukumar.github.io/bitcoin-mining-pools/" target="_blank" rel="noopener noreferrer">
+                    <div class="showcase-img">
+                        <img src="screenshots/mining-pool.png" alt="Bitcoin Mining Pools — hashrate distribution analytics" loading="lazy">
+                    </div>
+                    <div class="showcase-body">
+                        <p class="showcase-desc">Mining pool profiling and analytics tracking hashrate distribution, block templates, and miner behavior over time.</p>
+                        <span class="btn-ghost">Open Dashboard →</span>
+                    </div>
+                </a>
+                <a class="showcase-card" href="https://sorukumar.github.io/orange-dev-network/" target="_blank" rel="noopener noreferrer">
+                    <div class="showcase-img">
+                        <img src="screenshots/orange-dev-network.png" alt="Orange Dev Network — Bitcoin developer contributions and influence" loading="lazy">
+                    </div>
+                    <div class="showcase-body">
+                        <p class="showcase-desc">Quantifies the contributions and influence of every developer active in the Bitcoin ecosystem — their commits, impact, and network reach.</p>
+                        <span class="btn-ghost">Open Dashboard →</span>
+                    </div>
+                </a>
+                <a class="showcase-card" href="https://sorukumar.github.io/plebdashboard-ln/" target="_blank" rel="noopener noreferrer">
+                    <div class="showcase-img">
+                        <img src="screenshots/plebdashboard-ln.png" alt="LN Explorer — node profiles and Prank ranking" loading="lazy">
+                    </div>
+                    <div class="showcase-body">
+                        <p class="showcase-desc">Lightning Network node profiles and Prank — a custom method to rank LN nodes by economic weight and connectivity.</p>
+                        <span class="btn-ghost">Open Dashboard →</span>
+                    </div>
+                </a>
             </div>
         </section>
 
-        <!-- Open Data Hub Section -->
-        <section class="section" id="data-hub">
-            <h2 class="section-title"><i class="fas fa-database"></i> Open Data Hub</h2>
-            <div class="list-container">
-                <div class="list-item">
-                    <h3>
-                        <a href="https://datalabs.orangemetrics.xyz/" target="_blank">Data Platform</a>
-                    </h3>
-                    <p>A shared data platform for the Bitcoin ecosystem and beyond. We curate, clean, and transform data
-                        from Bitcoin, Lightning, and open-source projects, enabling you to build insights and
-                        applications with ease.</p>
+        <!-- Data Platform Feature -->
+        <section class="section data-platform-feature" id="data-platform">
+            <div class="dp-feature-card">
+                <div class="dp-feature-text">
+                    <p class="dp-eyebrow"><i class="fas fa-database"></i> Core Infrastructure</p>
+                    <h2 class="dp-title">The Data Platform</h2>
+                    <p class="dp-desc">The engine behind the lab. We curate, clean, and normalize Bitcoin and Lightning Network data into a shared platform — so builders can skip the pipeline work and go straight to insight. Drag-and-drop dashboard creation, structured datasets, and open APIs.</p>
+                    <div class="dp-tags">
+                        <span class="dp-tag">Drag-and-drop Dashboards</span>
+                        <span class="dp-tag">Curated On-chain Data</span>
+                        <span class="dp-tag">Lightning Network</span>
+                        <span class="dp-tag dp-tag-status">In Development</span>
+                    </div>
+                    <a href="https://datalabs.orangemetrics.xyz/" target="_blank" class="btn-ghost">Explore the Platform →</a>
                 </div>
             </div>
         </section>
 
-        <!-- Dashboards Section -->
+        <!-- All Dashboards Section -->
         <section class="section" id="dashboards">
-            <h2 class="section-title"><i class="fas fa-chart-line"></i> Dashboards</h2>
+            <h2 class="section-title"><i class="fas fa-chart-line"></i> All Dashboards</h2>
             <div class="list-container">
                 <div class="list-item">
                     <h3>
@@ -94,44 +255,32 @@
             </div>
         </section>
 
-        <!-- Tools Section -->
-        <section class="section" id="tools">
-            <h2 class="section-title"><i class="fas fa-tools"></i> Tools</h2>
-            <ul class="tools-list">
-                <li><a href="https://sorukumar.github.io/Tools/lnsimulator/lnsimulator.html" target="_blank">Lightning
-                        Network Simulator</a></li>
-                <li><a href="https://sorukumar.github.io/Tools/btcminingsimulator/index.html" target="_blank">Bitcoin
-                        Mining Explainer</a></li>
-                <li><a href="https://sorukumar.github.io/Tools/LNChannelIDDecoder/index.html" target="_blank">Lightning
-                        Channel ID Decoder</a></li>
-                <li><a href="https://sorukumar.github.io/Tools/BitcoinWitnessDataDecoder/index.html"
-                        target="_blank">Bitcoin Witness Data Decoder</a></li>
-                <li><a href="https://sorukumar.github.io/Tools/BitcoinBasicStats/index.html" target="_blank">Bitcoin
-                        Basic Stats</a></li>
-                <li><a href="https://sorukumar.github.io/Tools/" target="_blank">More Tools →</a></li>
-            </ul>
-        </section>
+        <!-- Resources: Tools + Books -->
+        <section class="section resources-section" id="resources">
+            <h2 class="section-title"><i class="fas fa-layer-group"></i> Resources</h2>
+            <div class="resources-grid">
 
-        <!-- Mini Books Section -->
-        <section class="section" id="mini-books">
-            <h2 class="section-title"><i class="fas fa-book"></i> Mini Books</h2>
-            <div class="list-container">
-                <div class="list-item">
-                    <h3><a href="https://sorukumar.github.io/TheBitcoinExpress/index.html" target="_blank">The Bitcoin
-                            Express</a></h3>
-                    <p>Quick guide to Bitcoin</p>
-                </div>
-                <div class="list-item">
-                    <h3><a href="https://sorukumar.github.io/TheCryptographyExpress/index.html" target="_blank">The
-                            Cryptography Express</a></h3>
-                    <p>Cryptography basics, fast</p>
+                <div class="resource-group">
+                    <h3 class="resource-group-title"><i class="fas fa-tools"></i> Tools</h3>
+                    <ul class="tools-list">
+                        <li><a href="https://sorukumar.github.io/Tools/lnsimulator/lnsimulator.html" target="_blank">Lightning Network Simulator</a></li>
+                        <li><a href="https://sorukumar.github.io/Tools/btcminingsimulator/index.html" target="_blank">Bitcoin Mining Explainer</a></li>
+                        <li><a href="https://sorukumar.github.io/Tools/LNChannelIDDecoder/index.html" target="_blank">Lightning Channel ID Decoder</a></li>
+                        <li><a href="https://sorukumar.github.io/Tools/BitcoinWitnessDataDecoder/index.html" target="_blank">Bitcoin Witness Data Decoder</a></li>
+                        <li><a href="https://sorukumar.github.io/Tools/BitcoinBasicStats/index.html" target="_blank">Bitcoin Basic Stats</a></li>
+                        <li><a href="https://sorukumar.github.io/Tools/" target="_blank">More Tools →</a></li>
+                    </ul>
                 </div>
 
-                <div class="list-item">
-                    <h3><a href="https://sorukumar.github.io/TheSowellExpress/" target="_blank">The Sowell Express</a>
-                    </h3>
-                    <p>The wisdom of Thomas Sowell, Distilled in an hour</p>
+                <div class="resource-group">
+                    <h3 class="resource-group-title"><i class="fas fa-book"></i> Mini Books</h3>
+                    <ul class="tools-list">
+                        <li><a href="https://sorukumar.github.io/TheBitcoinExpress/index.html" target="_blank">The Bitcoin Express</a> <span class="resource-caption">Quick guide to Bitcoin</span></li>
+                        <li><a href="https://sorukumar.github.io/TheCryptographyExpress/index.html" target="_blank">The Cryptography Express</a> <span class="resource-caption">Cryptography basics, fast</span></li>
+                        <li><a href="https://sorukumar.github.io/TheSowellExpress/" target="_blank">The Sowell Express</a> <span class="resource-caption">Wisdom of Thomas Sowell, distilled</span></li>
+                    </ul>
                 </div>
+
             </div>
         </section>
 
