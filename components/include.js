@@ -67,7 +67,7 @@ class BitcoinLabsComponents {
                         ` : ''}
                         <div class="parent-logo">
                             <a href="${basePath}/">
-                                <img src="${basePath}/logo-light.png" alt="Bitcoin Data Labs" class="parent-logo-img">
+                                <img src="${basePath}/logo.svg" alt="Bitcoin Data Labs" class="parent-logo-img">
                             </a>
                         </div>
                     </div>

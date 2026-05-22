@@ -81,7 +81,7 @@ class BitcoinLabsAppComponents {
             .replace(/href="https?:\/\/sorukumar\.github\.io\/Bitcoin-Data-Labs\//g, `href="${this.baseUrl}/`)
             .replace(/src="https?:\/\/bitcoindatalabs\.org\//g, `src="${this.baseUrl}/`)
             .replace(/href="https?:\/\/bitcoindatalabs\.org\//g, `href="${this.baseUrl}/`)
-            .replace(/src="\.\.\/logo-light\.png"/g, `src="${this.baseUrl}/logo-light.png"`)
+            .replace(/src="\.\.\/logo\.svg"/g, `src="${this.baseUrl}/logo.svg"`)
             .replace(/src="\.\.\/([^"]+)"/g, `src="${this.baseUrl}/$1"`)
             .replace(/href="\.\.\/([^"]+)"/g, `href="${this.baseUrl}/$1"`);
     }
