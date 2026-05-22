@@ -55,7 +55,7 @@ class BitcoinLabsComponents {
         const basePath = this.getBasePath();
         document.getElementById(elementId).innerHTML = `
             <div class="top-bar">
-                <div class="container top-container">
+                <div class="bdl-header-container top-container">
                     <div class="logos-container">
                         ${config.isApp ? `
                             <div class="app-logo">

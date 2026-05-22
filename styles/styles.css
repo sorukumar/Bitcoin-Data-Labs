@@ -32,7 +32,7 @@
     --header-height: 90px;
     --subnav-height: 50px;
     --header-height-compressed: 65px;
-    --max-width: 1000px;
+    --max-width: 1200px;
     --z-header: 10000;
 
     /* Header & Navigation Themes */
@@ -41,8 +41,6 @@
     --bdl-subnav-bg: var(--bg-primary);
     --bdl-nav-active-bg: rgba(232, 145, 107, 0.1);
     --bdl-nav-active-text: var(--primary);
-    
-    --logo-filter: none;
 }
 
 /* 🏆 Golden-Obsidian Terminal — Signature Data Aesthetic 🏆 */
@@ -78,15 +76,6 @@
     --card-shadow: 0 10px 50px rgba(0, 0, 0, 0.6);
 }
 
-/* 
-   Golden-Radiance Filter:
-   Synchronizes the logo with the 'Sovereign Terminal' aesthetic.
-   Produces a radiant Cream-Gold logotype while preserving Brand Terracotta.
-*/
-[data-theme="dark"] {
-    --logo-filter: invert(1) hue-rotate(170deg) brightness(1.7) contrast(1.1) saturate(1.1) drop-shadow(0 0 4px rgba(255, 176, 0, 0.3));
-}
-
 
 /* Top bar styles */
 .top-bar {
@@ -110,6 +99,14 @@ body.has-sub-nav .top-bar {
     border-radius: 0;
 }
 
+.bdl-header-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .top-container {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -131,7 +128,6 @@ body.has-sub-nav .top-bar {
 .logo-img {
     height: 60px;
     width: auto;
-    filter: var(--logo-filter, none);
 }
 
 .logo-img:hover,
@@ -155,7 +151,6 @@ body.has-sub-nav .top-bar {
 
 .header-compressed .parent-logo-img {
     height: 35px;
-    filter: var(--logo-filter, none);
 }
 
 /* Social links styles */
@@ -666,7 +661,8 @@ body.header-scrolled .app-sub-nav {
 
 @media screen and (max-width: 768px) {
 
-    .container {
+    .container,
+    .bdl-header-container {
         padding: 1rem;
     }
 
@@ -706,17 +702,17 @@ body.header-scrolled .app-sub-nav {
 
     /* Fixed social links overlapping issue in 1st image */
     @media screen and (max-width: 500px) {
-        body.has-nav .header-right-desktop {
-            display: none;
+        .header-right-desktop {
+            display: none !important;
         }
 
-        body.has-nav .logos-container {
+        .logos-container {
             max-width: 100%;
             flex: 1;
         }
 
-        body.has-nav .app-name {
-            font-size: 1rem;
+        .app-name {
+            font-size: 0.9rem !important;
         }
     }
 
@@ -854,7 +850,9 @@ body.header-scrolled .app-sub-nav {
 }
 
 @media screen and (max-width: 1240px) {
-    .top-container {
+    .top-container,
+    .nav-container,
+    .bdl-header-container {
         max-width: 100%;
         padding: 0.8rem 1.5rem;
     }
