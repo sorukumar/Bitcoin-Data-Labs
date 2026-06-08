@@ -153,6 +153,9 @@ class BitcoinLabsAppComponents {
                     desktopSuite.innerHTML = `
                         <style>
                             .bdl-suite-summary::marker, .bdl-suite-summary::-webkit-details-marker { display: none; }
+                            @media screen and (max-width: 768px) {
+                                .bdl-suite-details { display: none !important; }
+                            }
                         </style>
                         <details style="position: relative;" class="bdl-suite-details">
                             <summary class="bdl-suite-summary" style="cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px; background: rgba(128,128,128,0.1); color: inherit; font-weight: 600; font-size: 0.85rem; list-style: none; transition: background 0.2s;" onmouseover="this.style.background='rgba(128,128,128,0.2)'" onmouseout="this.style.background='rgba(128,128,128,0.1)'">
