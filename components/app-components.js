@@ -138,26 +138,48 @@ class BitcoinLabsAppComponents {
             }
 
             // Inject suite links if provided
+            // Inject suite links if provided
             if (config.suiteLinks && Array.isArray(config.suiteLinks) && config.suiteLinks.length > 0) {
                 const desktopSuite = document.getElementById('desktopSuiteLinks');
                 const mobileSuite = document.getElementById('mobileSuiteContent');
-                
-                const suiteHtml = config.suiteLinks.map(link => {
-                    const iconHtml = link.icon ? `<i class="${link.icon}" style="margin-right: 6px;"></i>` : '';
-                    return `<a href="${link.url}" style="color: #424770; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; padding: 4px 10px; background: rgba(10,37,64,0.03); border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(10,37,64,0.06)'" onmouseout="this.style.background='rgba(10,37,64,0.03)'">${iconHtml}${link.name}</a>`;
-                }).join('');
 
                 if (desktopSuite) {
-                    desktopSuite.innerHTML = suiteHtml;
+                    const menuItems = config.suiteLinks.map(link => {
+                        const iconHtml = link.icon ? `<i class="${link.icon}" style="width: 16px; text-align: center; margin-right: 8px; opacity: 0.7;"></i>` : '';
+                        return `<a href="${link.url}" style="display: block; padding: 10px 16px; color: inherit; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: background 0.2s;" onmouseover="this.style.background='rgba(128,128,128,0.1)'" onmouseout="this.style.background='transparent'" target="_blank">${iconHtml}${link.name}</a>`;
+                    }).join('');
+                    
+                    // Use HTML5 native <details> for a zero-JS accessible dropdown
+                    desktopSuite.innerHTML = `
+                        <style>
+                            .bdl-suite-summary::marker, .bdl-suite-summary::-webkit-details-marker { display: none; }
+                        </style>
+                        <details style="position: relative;" class="bdl-suite-details">
+                            <summary class="bdl-suite-summary" style="cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px; background: rgba(128,128,128,0.1); color: inherit; font-weight: 600; font-size: 0.85rem; list-style: none; transition: background 0.2s;" onmouseover="this.style.background='rgba(128,128,128,0.2)'" onmouseout="this.style.background='rgba(128,128,128,0.1)'">
+                                <i class="fas fa-layer-group"></i> Orange Dev Suite <i class="fas fa-chevron-down" style="font-size: 0.7em; opacity: 0.7;"></i>
+                            </summary>
+                            <div style="position: absolute; top: 100%; right: 0; margin-top: 8px; background: var(--card-bg, #ffffff); border: 1px solid var(--border-color, rgba(128,128,128,0.2)); border-radius: 8px; padding: 6px 0; min-width: 200px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); z-index: 100;">
+                                ${menuItems}
+                            </div>
+                        </details>
+                    `;
+
+                    // Close details dropdown when clicking outside
+                    document.addEventListener('click', (e) => {
+                        const details = document.querySelector('.bdl-suite-details');
+                        if (details && !details.contains(e.target)) {
+                            details.removeAttribute('open');
+                        }
+                    });
                 }
 
                 if (mobileSuite) {
                     const mobileSuiteHtml = `
-                        <div style="border-top: 1px solid rgba(0,0,0,0.05); margin: 15px 0 5px 0; padding-top: 15px;">
+                        <div style="border-top: 1px solid rgba(128,128,128,0.2); margin: 15px 0 5px 0; padding-top: 15px;">
                             <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin: 0 15px 10px 15px; font-weight: 600;">Orange Dev Suite</div>
                             ${config.suiteLinks.map(link => {
-                                const iconHtml = link.icon ? `<i class="${link.icon}" style="margin-right: 10px; width: 16px; text-align: center;"></i>` : '';
-                                return `<a href="${link.url}" class="nav-link suite-link-mobile" style="display: flex; align-items: center;">${iconHtml}${link.name}</a>`;
+                                const iconHtml = link.icon ? `<i class="${link.icon}" style="margin-right: 10px; width: 16px; text-align: center; opacity: 0.7;"></i>` : '';
+                                return `<a href="${link.url}" class="nav-link suite-link-mobile" style="display: flex; align-items: center; color: inherit;" target="_blank">${iconHtml}${link.name}</a>`;
                             }).join('')}
                         </div>
                     `;
