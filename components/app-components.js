@@ -136,6 +136,34 @@ class BitcoinLabsAppComponents {
             } else if (appSubNav) {
                 appSubNav.style.display = 'none';
             }
+
+            // Inject suite links if provided
+            if (config.suiteLinks && Array.isArray(config.suiteLinks) && config.suiteLinks.length > 0) {
+                const desktopSuite = document.getElementById('desktopSuiteLinks');
+                const mobileSuite = document.getElementById('mobileSuiteContent');
+                
+                const suiteHtml = config.suiteLinks.map(link => {
+                    const iconHtml = link.icon ? `<i class="${link.icon}" style="margin-right: 6px;"></i>` : '';
+                    return `<a href="${link.url}" style="color: #424770; text-decoration: none; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; padding: 4px 10px; background: rgba(10,37,64,0.03); border-radius: 6px; transition: background 0.2s;" onmouseover="this.style.background='rgba(10,37,64,0.06)'" onmouseout="this.style.background='rgba(10,37,64,0.03)'">${iconHtml}${link.name}</a>`;
+                }).join('');
+
+                if (desktopSuite) {
+                    desktopSuite.innerHTML = suiteHtml;
+                }
+
+                if (mobileSuite) {
+                    const mobileSuiteHtml = `
+                        <div style="border-top: 1px solid rgba(0,0,0,0.05); margin: 15px 0 5px 0; padding-top: 15px;">
+                            <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin: 0 15px 10px 15px; font-weight: 600;">Orange Dev Suite</div>
+                            ${config.suiteLinks.map(link => {
+                                const iconHtml = link.icon ? `<i class="${link.icon}" style="margin-right: 10px; width: 16px; text-align: center;"></i>` : '';
+                                return `<a href="${link.url}" class="nav-link suite-link-mobile" style="display: flex; align-items: center;">${iconHtml}${link.name}</a>`;
+                            }).join('')}
+                        </div>
+                    `;
+                    mobileSuite.innerHTML = mobileSuiteHtml;
+                }
+            }
         }, 100);
     }
 
