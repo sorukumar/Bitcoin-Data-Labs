@@ -156,7 +156,7 @@ class BitcoinLabsAppComponents {
                         </style>
                         <details style="position: relative;" class="bdl-suite-details">
                             <summary class="bdl-suite-summary" style="cursor: pointer; display: flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 6px; background: rgba(128,128,128,0.1); color: inherit; font-weight: 600; font-size: 0.85rem; list-style: none; transition: background 0.2s;" onmouseover="this.style.background='rgba(128,128,128,0.2)'" onmouseout="this.style.background='rgba(128,128,128,0.1)'">
-                                <i class="fas fa-layer-group"></i> Orange Dev Suite <i class="fas fa-chevron-down" style="font-size: 0.7em; opacity: 0.7;"></i>
+                                <i class="fas fa-layer-group"></i> orange-dev-suite <i class="fas fa-chevron-down" style="font-size: 0.7em; opacity: 0.7;"></i>
                             </summary>
                             <div style="position: absolute; top: 100%; right: 0; margin-top: 8px; background: var(--card-bg, #ffffff); border: 1px solid var(--border-color, rgba(128,128,128,0.2)); border-radius: 8px; padding: 6px 0; min-width: 200px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); z-index: 100;">
                                 ${menuItems}
@@ -176,7 +176,7 @@ class BitcoinLabsAppComponents {
                 if (mobileSuite) {
                     const mobileSuiteHtml = `
                         <div style="border-top: 1px solid rgba(128,128,128,0.2); margin: 15px 0 5px 0; padding-top: 15px;">
-                            <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #a0aec0; margin: 0 15px 10px 15px; font-weight: 600;">Orange Dev Suite</div>
+                            <div style="font-size: 0.8rem; letter-spacing: 0.5px; color: #a0aec0; margin: 0 15px 10px 15px; font-weight: 600;">orange-dev-suite</div>
                             ${config.suiteLinks.map(link => {
                                 const iconHtml = link.icon ? `<i class="${link.icon}" style="margin-right: 10px; width: 16px; text-align: center; opacity: 0.7;"></i>` : '';
                                 return `<a href="${link.url}" class="nav-link suite-link-mobile" style="display: flex; align-items: center; color: inherit;" target="_blank">${iconHtml}${link.name}</a>`;
