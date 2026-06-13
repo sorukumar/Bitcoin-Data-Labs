@@ -450,7 +450,48 @@
     transition: transform 0.4s ease;
 }
 
+/* Image Slider Animations */
+.showcase-img-slider {
+    position: relative;
+    width: 100%;
+}
+
+.showcase-img-slider img {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+}
+
+/* 2-Image Crossfade */
+.slider-2 img {
+    animation: fade2 8s infinite;
+}
+.slider-2 img:nth-child(1) { animation-delay: 0s; }
+.slider-2 img:nth-child(2) { animation-delay: 4s; }
+
+@keyframes fade2 {
+    0%, 40% { opacity: 1; transform: scale(1); }
+    50%, 100% { opacity: 0; transform: scale(1.02); }
+}
+
+/* 3-Image Crossfade */
+.slider-3 img {
+    animation: fade3 12s infinite;
+}
+.slider-3 img:nth-child(1) { animation-delay: 0s; }
+.slider-3 img:nth-child(2) { animation-delay: 4s; }
+.slider-3 img:nth-child(3) { animation-delay: 8s; }
+
+@keyframes fade3 {
+    0%, 25% { opacity: 1; transform: scale(1); }
+    33%, 100% { opacity: 0; transform: scale(1.02); }
+}
+
 .showcase-card:hover .showcase-img img {
+    /* Let the animation handle scale so hover doesn't break crossfade */
+}
+
+.showcase-card:hover .showcase-img > img:not(.slider-img) {
     transform: scale(1.04);
 }
 
