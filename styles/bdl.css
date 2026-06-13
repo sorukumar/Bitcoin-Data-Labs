@@ -327,6 +327,8 @@
     padding: 3rem 2.5rem;
     border-right: 1px solid rgba(42, 51, 66, 0.1);
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .pillar-card:last-child {
@@ -364,6 +366,25 @@
     color: var(--text-secondary);
     margin: 0;
     font-weight: 400;
+}
+
+.pillar-cta {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+    margin-top: auto;
+    padding-top: 2rem;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.pillar-cta:hover {
+    color: var(--secondary);
+    transform: translateX(3px);
 }
 
 @media (max-width: 768px) {
