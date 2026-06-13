@@ -8,7 +8,8 @@ When working on a repository integration, ensure the following steps are followe
 
 1.  **Remove Legacy Mobile Navs**: Delete any local hamburger menus, mobile navigation CSS/JS, or custom header logic. The shared library handles this natively.
 2.  **Clear CSS Overrides**: Look for `!important` rules targeting `header`, `#header`, or `footer`. These usually cause layout breakage with the modern fluid shell.
-3.  **Bootstrap Body**: Ensure the `<body>` tag has the `.has-fixed-header` class.
+3.  **Respect Dual-CSS Architecture**: Always import `styles.css` for the global design system. Never import `bdl.css` in child apps, as it is strictly reserved for the Bitcoin Data Labs landing page layout.
+4.  **Bootstrap Body**: Ensure the `<body>` tag has the `.has-fixed-header` class.
 
 ## 🛠️ Step-by-Step Integration
 
@@ -22,9 +23,16 @@ Ensure your `index.html` (and all other pages) follows this skeleton:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Unified Styles (Load BEFORE your app's CSS) -->
+    <!-- Unified Styles (Global Design System) -->
     <link rel="stylesheet" href="https://bitcoindatalabs.org/styles/styles.css">
     
+    <!-- 🛑 IMPORTANT: Do NOT import bdl.css here! 🛑
+         bdl.css is EXCLUSIVELY for the Bitcoin Data Labs landing page.
+         It contains hero sections and flywheels that will bloat your app. -->
+    
+    <!-- App Specific Styles (Load AFTER styles.css) -->
+    <!-- <link rel="stylesheet" href="styles/your-app-style.css"> -->
+
     <!-- Required Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
