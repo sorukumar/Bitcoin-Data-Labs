@@ -412,8 +412,8 @@
 
 .showcase-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
 }
 
 .showcase-card {
@@ -657,9 +657,9 @@
 /* ═══ The Contributor Flywheel (2-Column) ═══ */
 .flywheel-section {
     background: var(--bg-secondary);
-    padding: 4rem;
+    padding: 3rem 4rem;
     border-radius: 4px;
-    margin: 4rem 0;
+    margin: 3rem 0;
     border: 1px solid rgba(42, 51, 66, 0.08);
 }
 
