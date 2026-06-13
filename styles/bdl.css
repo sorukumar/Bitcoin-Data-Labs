@@ -5,7 +5,6 @@
 ==========================================================================
 */
 
-
 /* Main Site Layout (Scoped to avoid conflicts with apps) */
 .bdl-container {
     position: relative;
@@ -95,7 +94,6 @@
 .bdl-internal-header {
     display: none;
 }
-
 
 /* Section styles */
 .section {
@@ -308,41 +306,6 @@
     color: var(--primary);
 }
 
-    .list-container {
-        grid-template-columns: 1fr;
-
-    .tools-list {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-section {
-        min-height: 280px;
-    }
-
-    .hero-content {
-        padding: 3rem 1.5rem;
-    }
-
-    .hero-headline {
-        font-size: 2rem;
-    }
-
-    .hero-description {
-        font-size: 0.95rem;
-        max-width: 100%;
-    }
-
-    .hero-bg-pattern {
-        width: 100%;
-        opacity: 0.35;
-    }
-
-    .hero-gradient-overlay {
-        background: linear-gradient(90deg,
-                #18212f 10%,
-                rgba(5, 7, 10, 0.96) 50%,
-                rgba(5, 7, 10, 0.7) 100%);
-
 /* ═══════════════════════════════════════════════
    THREE PILLARS SECTION
 ═══════════════════════════════════════════════ */
@@ -512,7 +475,6 @@
         grid-template-columns: 1fr;
     }
 }
-
 /* ═══════════════════════════════════════════════
    RESOURCES SECTION (Tools + Books side-by-side)
 ═══════════════════════════════════════════════ */
@@ -622,7 +584,7 @@
     color: var(--primary);
     border-color: rgba(232, 145, 107, 0.4);
     background: rgba(232, 145, 107, 0.06);
-
+}
 /* RESTORED CSS FROM YESTERDAY FOR INDEX.HTML COMPONENTS */
 .showcase-eyebrow {
     font-size: 0.7rem;
@@ -770,4 +732,44 @@
         flex-direction: column-reverse;
         gap: 2.5rem;
     }
+}
+
+/* Mobile Queries */
+@media screen and (max-width: 768px) {
+        .list-container {
+            grid-template-columns: 1fr;
+        }
+
+        .tools-list {
+            grid-template-columns: 1fr;
+        }
+    
+        .hero-section {
+            min-height: 280px;
+        }
+    
+        .hero-content {
+            padding: 3rem 1.5rem;
+        }
+    
+        .hero-headline {
+            font-size: 2rem;
+        }
+    
+        .hero-description {
+            font-size: 0.95rem;
+            max-width: 100%;
+        }
+    
+        .hero-bg-pattern {
+            width: 100%;
+            opacity: 0.35;
+        }
+    
+        .hero-gradient-overlay {
+            background: linear-gradient(90deg,
+                    #18212f 10%,
+                    rgba(5, 7, 10, 0.96) 50%,
+                    rgba(5, 7, 10, 0.7) 100%);
+        }
 }

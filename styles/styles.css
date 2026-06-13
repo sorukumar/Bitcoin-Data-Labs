@@ -208,6 +208,7 @@ body {
 }
 
 
+
 /* Footer */
 footer {
     text-align: center;
@@ -369,7 +370,7 @@ body.header-scrolled .app-sub-nav {
     .bdl-header-container {
         padding: 1rem;
     }
-    }
+
 
     .top-container {
         flex-wrap: wrap;
@@ -490,7 +491,7 @@ body.header-scrolled .app-sub-nav {
         padding: 1rem 0;
         border-top: 1px solid rgba(0, 0, 0, 0.05);
     }
-    }
+
 
     .divider {
         display: none;
@@ -549,7 +550,8 @@ body.header-scrolled .app-sub-nav {
     background: var(--primary);
     color: #fff;
 }
-}
+
+
 /* 
 ==========================================================================
    Premium UI Components (Global)
@@ -715,3 +717,4 @@ body.header-scrolled .app-sub-nav {
 [data-theme="dark"] .details-box dt {
     color: var(--text-secondary) !important;
 }
+
