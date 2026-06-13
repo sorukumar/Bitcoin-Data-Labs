@@ -45,34 +45,40 @@
 
 /* 🏆 Golden-Obsidian Terminal — Signature Data Aesthetic 🏆 */
 [data-theme="dark"] {
-    --bg-primary: #05070A;    /* Deepest Obsidian */
-    --bg-secondary: #0D0F14;  /* Deep Neutral Surface */
+    --bg-primary: #05070A;
+    /* Deepest Obsidian */
+    --bg-secondary: #0D0F14;
+    /* Deep Neutral Surface */
     --surface: #0D0F14;
     --card-bg: #080A0F;
-    
-    --text-primary: #FDF6E3;  /* High-Contrast Cream (Easier on eyes) */
-    --text-secondary: #94A3B8; /* Muted Slate-Neutral */
-    
+
+    --text-primary: #FDF6E3;
+    /* High-Contrast Cream (Easier on eyes) */
+    --text-secondary: #94A3B8;
+    /* Muted Slate-Neutral */
+
     --secondary: #FDF6E3;
-    --primary: #E8916B;       /* Brand Terracotta (Anchor) */
-    --bitcoin-orange: #FFB000; /* Signal Gold (Reserved for Metadata/Highlights) */
-    
+    --primary: #E8916B;
+    /* Brand Terracotta (Anchor) */
+    --bitcoin-orange: #FFB000;
+    /* Signal Gold (Reserved for Metadata/Highlights) */
+
     /* Global Warm Data Palette */
     --legend-creator: #FFB000;
     --legend-architect: #E8916B;
     --legend-engineer: #D4A298;
     --legend-researcher: #8293AB;
     --legend-participant: #2D3748;
-    
+
     --border-subtle: rgba(253, 246, 227, 0.08);
-    
+
     /* Header & Navigation Themes - Refined to 'Surgical' Terracotta */
     --bdl-header-bg: rgba(5, 7, 10, 0.9);
     --bdl-header-bg-compressed: rgba(5, 7, 10, 0.98);
     --bdl-subnav-bg: #0D0F14;
     --bdl-nav-active-bg: rgba(232, 145, 107, 0.12);
     --bdl-nav-active-text: var(--primary);
-    
+
     --card-shadow: 0 10px 50px rgba(0, 0, 0, 0.6);
 }
 
@@ -205,7 +211,7 @@ body {
 /* Main Site Layout (Scoped to avoid conflicts with apps) */
 .bdl-container {
     position: relative;
-    max-width: 960px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 1rem 2rem;
 }
@@ -850,6 +856,7 @@ body.header-scrolled .app-sub-nav {
 }
 
 @media screen and (max-width: 1240px) {
+
     .top-container,
     .nav-container,
     .bdl-header-container {
@@ -879,8 +886,6 @@ body.header-scrolled .app-sub-nav {
     padding: 3rem 2.5rem;
     border-right: 1px solid rgba(42, 51, 66, 0.1);
     position: relative;
-    display: flex;
-    flex-direction: column;
 }
 
 .pillar-card:last-child {
@@ -920,16 +925,6 @@ body.header-scrolled .app-sub-nav {
     font-weight: 400;
 }
 
-.pillar-cta {
-    margin-top: auto;
-    padding-top: 1.5rem;
-    display: inline-block;
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--primary);
-    text-decoration: none;
-}
-
 @media (max-width: 768px) {
     .pillars-inner {
         grid-template-columns: 1fr;
@@ -955,8 +950,8 @@ body.header-scrolled .app-sub-nav {
 
 .showcase-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
 }
 
 .showcase-card {
@@ -993,48 +988,7 @@ body.header-scrolled .app-sub-nav {
     transition: transform 0.4s ease;
 }
 
-/* Image Slider Animations */
-.showcase-img-slider {
-    position: relative;
-    width: 100%;
-}
-
-.showcase-img-slider img {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-}
-
-/* 2-Image Crossfade */
-.slider-2 img {
-    animation: fade2 8s infinite;
-}
-.slider-2 img:nth-child(1) { animation-delay: 0s; }
-.slider-2 img:nth-child(2) { animation-delay: 4s; }
-
-@keyframes fade2 {
-    0%, 40% { opacity: 1; transform: scale(1); }
-    50%, 100% { opacity: 0; transform: scale(1.02); }
-}
-
-/* 3-Image Crossfade */
-.slider-3 img {
-    animation: fade3 12s infinite;
-}
-.slider-3 img:nth-child(1) { animation-delay: 0s; }
-.slider-3 img:nth-child(2) { animation-delay: 4s; }
-.slider-3 img:nth-child(3) { animation-delay: 8s; }
-
-@keyframes fade3 {
-    0%, 25% { opacity: 1; transform: scale(1); }
-    33%, 100% { opacity: 0; transform: scale(1.02); }
-}
-
 .showcase-card:hover .showcase-img img {
-    /* Let the animation handle scale so hover doesn't break crossfade */
-}
-
-.showcase-card:hover .showcase-img > img:not(.slider-img) {
     transform: scale(1.04);
 }
 
@@ -1060,64 +1014,19 @@ body.header-scrolled .app-sub-nav {
 }
 
 .showcase-body {
-    padding: 2rem 1.75rem;
-    flex-grow: 1;
+    padding: 1.2rem 1.4rem 1.4rem;
     display: flex;
     flex-direction: column;
-}
-
-.showcase-eyebrow {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--primary);
-    margin: 0 0 0.5rem 0;
-}
-
-.showcase-title {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--secondary);
-    margin: 0 0 1rem 0;
-    line-height: 1.2;
+    gap: 1rem;
+    flex-grow: 1;
 }
 
 .showcase-desc {
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.88rem;
+    line-height: 1.65;
     color: var(--text-secondary);
-    margin: 0 0 1.5rem 0;
-}
-
-.suite-tools {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-}
-
-.suite-tool-pill {
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.2rem 0.6rem;
-    background: rgba(42, 51, 66, 0.05);
-    color: var(--secondary);
-    border-radius: 4px;
-    border: 1px solid rgba(42, 51, 66, 0.1);
-    text-decoration: none;
-    transition: all 0.2s ease;
-}
-
-.suite-tool-pill:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-}
-
-[data-theme="dark"] .suite-tool-pill {
-    background: rgba(253, 246, 227, 0.05);
-    border-color: rgba(253, 246, 227, 0.1);
-    color: var(--text-primary);
+    margin: 0;
+    flex-grow: 1;
 }
 
 /* Ghost Button */
@@ -1258,104 +1167,168 @@ body.header-scrolled .app-sub-nav {
     border-color: rgba(232, 145, 107, 0.4);
     background: rgba(232, 145, 107, 0.06);
 }
+/* 
+==========================================================================
+   Premium UI Components (Global)
+   Provides native Light/Dark support for generic UI elements across apps.
+==========================================================================
+*/
 
-/* ═══ The Contributor Flywheel (2-Column) ═══ */
-.flywheel-section {
-    background: var(--bg-secondary);
-    padding: 4rem;
-    border-radius: 4px;
-    margin: 4rem 0;
-    border: 1px solid rgba(42, 51, 66, 0.08);
-}
-
-.flywheel-split {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-}
-
-.flywheel-text-col {
-    flex: 1;
-    text-align: left;
-}
-
-.flywheel-img-col {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+/* --- Toggle Group (Pill Switchers) --- */
+.toggle-group {
+    display: inline-flex;
+    background: rgba(42, 51, 66, 0.06);
+    padding: 3px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 600;
     align-items: center;
 }
 
-.flywheel-diagram {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    mix-blend-mode: multiply; /* Blends the light background of the image nicely */
+.toggle-group button {
+    padding: 6px 14px;
+    border: 1px solid transparent;
+    background: transparent;
+    border-radius: 50px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
+    font-weight: 600;
+    letter-spacing: 0.02em;
 }
 
-[data-theme="dark"] .flywheel-diagram {
-    mix-blend-mode: screen;
-    filter: invert(1) hue-rotate(180deg) brightness(1.2); /* Inverts the drawing for dark mode */
+.toggle-group button:hover {
+    color: var(--text-primary);
 }
 
-.flywheel-eyebrow {
-    font-size: 0.75rem;
+.toggle-group button.active {
+    background: rgba(232, 145, 107, 0.1);
+    color: var(--primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] .toggle-group {
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .toggle-group button {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .toggle-group button:hover {
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="dark"] .toggle-group button.active {
+    background: rgba(232, 145, 107, 0.15);
+    border: 1px solid rgba(232, 145, 107, 0.3);
+    color: var(--primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Standardized Badges --- */
+.partial-year-badge {
+    display: inline-block;
+    background: rgba(232, 145, 107, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(232, 145, 107, 0.3);
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.15em;
+    padding: 2px 8px;
+    border-radius: 6px;
+    vertical-align: middle;
+    margin-left: 10px;
     text-transform: uppercase;
-    color: var(--primary);
-    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
 }
 
-.flywheel-eyebrow i {
-    margin-right: 0.4rem;
+[data-theme="dark"] .partial-year-badge {
+    background: rgba(232, 145, 107, 0.15);
+    border: 1px solid rgba(232, 145, 107, 0.4);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-.flywheel-subtitle {
+/* --- Info Box / Disclaimers --- */
+.info-box {
+    margin-top: 20px;
+    padding: 20px;
+    background: #F8FAFC;
+    border-radius: 12px;
+    border: 1px solid rgba(42, 51, 66, 0.08);
+    font-size: 0.95em;
+    line-height: 1.6;
     color: var(--text-secondary);
-    font-size: 1.05rem;
-    margin-bottom: 2rem;
+    transition: all 0.3s ease;
 }
 
-.flywheel-bullets {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 2.5rem 0;
+.info-box.accent-left {
+    border-left: 4px solid var(--primary);
+    border-radius: 8px 12px 12px 8px;
 }
 
-.flywheel-bullets li {
-    position: relative;
-    padding-left: 2rem;
-    margin-bottom: 1.25rem;
-    font-size: 1.05rem;
+[data-theme="dark"] .info-box {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .info-box.accent-left {
+    border-left: 4px solid var(--primary);
+}
+
+/* --- Placeholder Charts --- */
+.placeholder-chart {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #F8FAFC;
+    border: 2px dashed rgba(42, 51, 66, 0.15);
+    border-radius: 12px;
     color: var(--text-secondary);
+    margin-top: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
-.flywheel-bullets li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: var(--primary);
-    font-weight: 800;
+[data-theme="dark"] .placeholder-chart {
+    background: rgba(255, 255, 255, 0.01);
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.4);
 }
 
-.flywheel-bullets strong {
-    color: var(--secondary);
-    font-weight: 700;
+/* 
+==========================================================================
+   Global Typography Hierarchy (Dark Mode Overrides)
+==========================================================================
+*/
+[data-theme="dark"] h1,
+[data-theme="dark"] section h2,
+[data-theme="dark"] .header-text h1 {
+    color: var(--text-primary) !important;
 }
 
-.flywheel-cta {
-    margin-top: 1rem;
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] section h3,
+[data-theme="dark"] section h4,
+[data-theme="dark"] .metric-card h4,
+[data-theme="dark"] .issue-title {
+    color: var(--text-secondary) !important;
+    font-weight: 600;
 }
 
-@media screen and (max-width: 768px) {
-    .flywheel-section {
-        padding: 2.5rem 1.5rem;
-    }
-    .flywheel-split {
-        flex-direction: column-reverse;
-        gap: 2.5rem;
-    }
+[data-theme="dark"] p,
+[data-theme="dark"] .header-text p,
+[data-theme="dark"] .issue-meta,
+[data-theme="dark"] section p,
+[data-theme="dark"] .details-box dt {
+    color: var(--text-secondary) !important;
 }
