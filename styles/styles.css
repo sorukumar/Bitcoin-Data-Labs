@@ -580,7 +580,8 @@ body.header-scrolled .app-sub-nav {
     flex-shrink: 0 !important;
 }
 
-.hero-section > h1 {
+.hero-section > h1,
+[data-theme="dark"] .hero-section > h1 {
     font-size: 48px;
     font-weight: 900;
     letter-spacing: -0.03em;
@@ -591,9 +592,10 @@ body.header-scrolled .app-sub-nav {
     max-width: 700px !important;
 }
 
-.hero-section > p {
+.hero-section > p,
+[data-theme="dark"] .hero-section > p {
     font-size: 1.25rem;
-    color: var(--text-secondary);
+    color: var(--text-secondary) !important;
     max-width: 700px !important;
     margin: 0 auto 32px;
     opacity: 0.9;
