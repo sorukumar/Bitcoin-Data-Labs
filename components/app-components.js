@@ -130,11 +130,6 @@ class BitcoinLabsAppComponents {
                 if (appNav) appNav.innerHTML = navHtml;
                 if (mobileNav) mobileNav.innerHTML = navHtml;
 
-                // Also copy socials to mobile menu if container exists
-                const desktopSocials = document.querySelector('.social-links-top');
-                if (mobileSocials && desktopSocials) {
-                    mobileSocials.innerHTML = desktopSocials.innerHTML;
-                }
             } else if (appSubNav) {
                 appSubNav.style.display = 'none';
             }
