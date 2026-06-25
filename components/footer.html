@@ -1,13 +1,18 @@
 <!-- Bitcoin Data Labs Footer Component -->
-<footer style="background: var(--card-bg, #1a1e23); border-top: 1px solid var(--border-color, rgba(255,255,255,0.1)); padding: 2rem 0; margin-top: 4rem; font-size: 0.9rem; color: var(--text-secondary, #94a3b8);">
+<footer style="background: var(--card-bg, #1a1e23); border-top: 1px solid var(--border-color, rgba(255,255,255,0.1)); padding: 2rem 0; margin-top: 0; font-size: 0.9rem; color: var(--text-secondary, #94a3b8);">
     <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-        <div>
+        <div style="flex: 1; min-width: 250px;">
             <p style="margin: 0;">
                 © <span id="footer-year"></span> <a href="https://bitcoindatalabs.org" style="color: var(--primary, #E8916B); text-decoration: none; font-weight: 600;">Bitcoin Data Labs</a>. All rights reserved.
             </p>
         </div>
-        <div id="appFooterLinks" style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+        <div id="appFooterLinks" style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap; justify-content: center; flex: 2;">
             <!-- Populated dynamically by app-components.js -->
+        </div>
+        <div class="footer-socials" style="display: flex; gap: 20px; align-items: center; justify-content: flex-end; flex: 1; min-width: 150px;">
+            <a href="https://github.com/sorukumar/Bitcoin-Data-Labs" target="_blank" style="color: var(--text-secondary, #94a3b8); text-decoration: none; font-size: 1.2rem; transition: color 0.2s;" onmouseover="this.style.color='var(--primary, #E8916B)'" onmouseout="this.style.color='var(--text-secondary, #94a3b8)'"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/sorukumar" target="_blank" style="color: var(--text-secondary, #94a3b8); text-decoration: none; font-size: 1.2rem; transition: color 0.2s;" onmouseover="this.style.color='var(--primary, #E8916B)'" onmouseout="this.style.color='var(--text-secondary, #94a3b8)'"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/bitcoin-data-labs" target="_blank" style="color: var(--text-secondary, #94a3b8); text-decoration: none; font-size: 1.2rem; transition: color 0.2s;" onmouseover="this.style.color='var(--primary, #E8916B)'" onmouseout="this.style.color='var(--text-secondary, #94a3b8)'"><i class="fab fa-linkedin"></i></a>
         </div>
     </div>
 </footer>
