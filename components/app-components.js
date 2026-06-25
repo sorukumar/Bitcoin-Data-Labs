@@ -347,15 +347,6 @@ class BitcoinLabsAppComponents {
 
                     <div class="nav-links-wrapper" style="display: flex; gap: 15px;">
                         <div class="app-nav" id="appNavLinks"></div>
-                        <a href="https://github.com/sorukumar/Bitcoin-Data-Labs" target="_blank" style="color: #2A3342; text-decoration: none; opacity: 0.8;" class="social-icon">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://x.com/Soru_kumar" target="_blank" style="color: #2A3342; text-decoration: none; opacity: 0.8;" class="social-icon">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/saurabh-kumar-930b6623/" target="_blank" style="color: #2A3342; text-decoration: none; opacity: 0.8;" class="social-icon">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
                     </div>
                 </div>
             </div>`;
