@@ -65,6 +65,8 @@ class BitcoinLabsAppComponents {
             if (elementId === 'header') {
                 if (config.isApp) this.configureAppHeader(config);
                 this.initHeaderBehavior(config);
+            } else if (elementId === 'footer') {
+                this.configureAppFooter(config);
             }
 
         } catch (error) {
@@ -255,6 +257,60 @@ class BitcoinLabsAppComponents {
         }
     }
 
+    static configureAppFooter(config) {
+        setTimeout(() => {
+            const footerLinksContainer = document.getElementById('appFooterLinks');
+            if (footerLinksContainer && config.footerLinks && Array.isArray(config.footerLinks)) {
+                const linksHtml = config.footerLinks.map(link => {
+                    return `<a href="${link.url}" style="color: var(--text-secondary, #94a3b8); text-decoration: none; font-weight: 500; transition: color 0.2s;" onmouseover="this.style.color='var(--primary, #E8916B)'" onmouseout="this.style.color='var(--text-secondary, #94a3b8)'">${link.name}</a>`;
+                }).join('<span style="color: rgba(255,255,255,0.2); margin: 0 12px;">|</span>');
+                footerLinksContainer.innerHTML = linksHtml;
+            }
+        }, 100);
+    }
+
+    static injectFeedbackWidget(feedbackUrl) {
+        if (document.getElementById('bdl-feedback-widget')) return;
+        
+        const widget = document.createElement('a');
+        widget.id = 'bdl-feedback-widget';
+        widget.href = feedbackUrl;
+        widget.innerHTML = '<i class="fas fa-lightbulb"></i>';
+        widget.title = 'Feedback & Feature Requests';
+        
+        // Inline styles to avoid CSS coupling across repos
+        Object.assign(widget.style, {
+            position: 'fixed',
+            bottom: '30px',
+            right: '30px',
+            width: '56px',
+            height: '56px',
+            borderRadius: '50%',
+            backgroundColor: 'var(--primary, #E8916B)',
+            color: '#ffffff',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '24px',
+            boxShadow: '0 4px 15px rgba(232, 145, 107, 0.4)',
+            cursor: 'pointer',
+            zIndex: '9999',
+            textDecoration: 'none',
+            transition: 'transform 0.2s, box-shadow 0.2s'
+        });
+        
+        widget.onmouseover = () => {
+            widget.style.transform = 'translateY(-3px)';
+            widget.style.boxShadow = '0 6px 20px rgba(232, 145, 107, 0.6)';
+        };
+        widget.onmouseout = () => {
+            widget.style.transform = 'none';
+            widget.style.boxShadow = '0 4px 15px rgba(232, 145, 107, 0.4)';
+        };
+        
+        document.body.appendChild(widget);
+    }
+
     static loadFallback(elementId, config = {}) {
         const element = document.getElementById(elementId);
         if (!element) return;
@@ -340,6 +396,10 @@ class BitcoinLabsAppComponents {
         const headerPath = config.isApp ? '/components/app-header.html' : '/components/header.html';
         this.loadComponent('header', headerPath, config);
         this.loadComponent('footer', '/components/footer.html', config);
+        
+        if (config.feedbackUrl) {
+            setTimeout(() => this.injectFeedbackWidget(config.feedbackUrl), 200);
+        }
 
         // Debug info
         if (config.debug) {
