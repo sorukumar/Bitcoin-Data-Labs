@@ -1,4 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 :root {
+    /* Definitive Ecosystem Font Stacks */
+    --bdl-font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --bdl-font-serif: "Georgia", "Times New Roman", serif;
+    --bdl-font-mono: 'SFMono-Regular', Consolas, "Liberation Mono", Menlo, monospace;
+
     /* Primary Colors */
     --primary: #E8916B;
     /* Warm Terracotta */
